@@ -1,0 +1,348 @@
+/* Styles for Show/Hide search field checkbox*/
+.checkbox-wrapper-35 .toggle-form-switch {
+    display: none;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #78768d;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: "Courier New", "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 15px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label::before,
+  .checkbox-wrapper-35 .toggle-form-switch + label::after {
+    content: '';
+    display: block;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label::before {
+    background-color: #81961C; /* Original: #05012c */
+    border-radius: 500px;
+    height: 20px;
+    margin-right: 8px; /*Distance between toggle and beginning of text.*/
+    -webkit-transition: background-color 0.125s ease-out;
+    transition: background-color 0.125s ease-out;
+    width: 40px;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label::after {
+    background-color: #fff;
+    border-radius: 13px;
+    box-shadow: 0 3px 1px 0 rgba(37, 34, 71, 0.05), 0 2px 2px 0 rgba(37, 34, 71, 0.1), 0 3px 3px 0 rgba(37, 34, 71, 0.05);
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    -webkit-transition: -webkit-transform 0.125s ease-out;
+    transition: -webkit-transform 0.125s ease-out;
+    transition: transform 0.125s ease-out;
+    transition: transform 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    width: 13px;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-text {
+    display: block;
+    margin-right: .3em;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-toggletext {
+    display: block;
+    font-weight: bold;
+    height: 15px;
+    overflow: hidden;
+    position: relative;
+    width: 50px; /* Distance between changing and unchanging label text. */
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-unchecked,
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-checked {
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    transition: transform 0.125s ease-out, opacity 0.125s ease-out;
+    transition: transform 0.125s ease-out, opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-unchecked {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-checked {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch + label .switch-x-hiddenlabel {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch:checked + label::before {
+    background-color: #271F16;
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch:checked + label::after {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(20px, 0, 0); /* How far toggle moves. */
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch:checked + label .switch-x-unchecked {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .checkbox-wrapper-35 .toggle-form-switch:checked + label .switch-x-checked {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+  
+  
+
+/* CARD VIEW STYLES */  
+.info-card {
+	
+	background-color: #FAFAF4;
+	border-radius: 0.5em;
+	padding: 1em;
+	margin: 0.5em;
+	box-shadow: 4px 4px 7px #C7C7C3;
+	
+}
+
+.info-card p {
+	
+	font-family: Garamond, serif, sans-serif; 
+	
+}
+
+
+/* Dropdown styles 
+
+select {
+	
+	border-radius: 0.5em;
+	width: 10em;
+	height: 2em;
+	font-weight: bold;
+	
+}*/ 
+
+
+.dropdown-selection {
+	
+	cursor: pointer;
+	border-radius: 0.5em;
+	border-style: solid;
+	width: 10em;
+	padding: 2px 2px 2px 10px;
+	
+}
+
+.select-arrow {
+	
+	margin-left: 4.9em;
+	
+}
+
+.dropdown-options {
+	
+	margin-top: 0.5em;
+	background-color: #C7C7C3; /*Temp background color. */
+	width: 10em;
+	border-radius: 0.5em;
+	padding: 0.5em;
+	
+}
+
+.dropdown-options label:hover {
+	
+	background-color: #FAFAF4;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Testing 
+.search-category-select {
+  position: relative;
+  width: 200px;
+  font-family: sans-serif;
+  user-select: none;
+}
+
+.select-trigger {
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.select-trigger:hover {
+  border-color: #999;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  z-index: 10;
+}
+
+.search-category-select.open .options {
+  max-height: 300px; /* Adjust based on content *
+  overflow-y: auto;
+}
+
+.option {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.option:hover {
+  background: #f0f0f0;
+}
+
+input[type="radio"]:checked + .option {
+  background: #e3f2fd;
+  font-weight: bold;
+}
+
+/* Hide native radio buttons *
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+#search-category {
+  /* ---- make the native select look like the demo header ---- 
+  appearance: none;                   /* remove default arrow 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: none;
+  border-radius: 0.5em;
+  padding: 0 2.5rem 0 1rem;            /* room for custom arrow 
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
+  cursor: pointer;
+  transition: all .4s;
+  position: relative;
+  z-index: 1;
+}
+
+/* hover / focus 
+#search-category:hover,
+#search-category:focus {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 3px -1px rgba(0,0,0,.35);
+  outline: none;
+}
+
+/* ---- custom arrow (the triangle from the demo) ----
+#search-category::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg) scale(0.75);
+  /*width: 0; height: 0;*/
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid currentColor;
+  pointer-events: none;
+  transition: transform .3s;
+  
+  z-index: 2
+}
+
+/* rotate arrow when the select is open *
+#search-category:focus::after {
+  transform: translateY(-50%) rotate(180deg) scale(0.75);
+}
+
+/* -------------------------------------------------
+   2. Style the <option> elements (visible in the dropdown)
+   ------------------------------------------------- *
+#search-category option {
+  padding: .4rem 1rem;
+}
+
+/* hover/focus inside the dropdown *
+#search-category option:hover {
+  background: mediumorchid !important;
+}*/
+
+

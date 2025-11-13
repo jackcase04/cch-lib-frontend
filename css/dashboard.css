@@ -1,0 +1,65 @@
+.img-aspect{
+	
+	width: 84px;
+	height: 84px;
+	margin-bottom: 0.7em;
+	
+}
+
+.bold-hr {
+	display: block;
+	  /*border: none;*/
+	  /*border-top: 0;*/
+	  box-shadow: none;
+	  color: black;
+	  background: black;
+	  height: 3px;
+	  margin: 1rem auto;
+	  width: 100%;
+  
+  
+  /*
+  display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #000;
+	color: #000;
+	margin: 1em 0;
+	padding: 0;*/
+	
+}
+
+/* Shrink <hr> length on phones */
+.responsive-hr {
+  border: none;
+  height: 2px;
+  background: #8a9a5b;        /* your moss green */
+  margin: 1rem auto;
+  width: 90%;                 /* default width */
+  transition: width 0.3s ease;
+}
+
+/* Tablet and below */
+@media (max-width: 991px) {
+  .responsive-hr { width: 50%; }
+}
+
+@media (max-width: 755px) {
+  .responsive-hr { width: 70%; }
+}
+
+/* Phone */
+@media (max-width: 576px) {
+  .responsive-hr { 
+    width: 80%;   /* forces it short on small screens */
+  }
+}
+
+/* Extra bottom margin for the notification info */
+.extra-bottom-margin {
+	
+	margin-bottom: 5em;
+	
+}
+
+

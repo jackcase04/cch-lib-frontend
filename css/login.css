@@ -1,0 +1,36 @@
+/* Styles Specific to the Login Page */
+
+/* Make background of login field translucent */
+.translucent-background {
+	
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 5em;
+	padding: 2em;
+	
+}
+
+#logo-wrapper {
+
+	padding: 0em;
+	margin-left: -0.45em;
+	
+}
+
+.text-field {
+	
+	border-radius: 0.5em;
+	min-width: 100%;
+	min-height: 2.5em;
+	
+}
+
+.input-label {
+	
+	text-align: left;
+	
+}
+
+/* Adjust spacing of sign-up link on hover. */
+.letter-spacing a:hover {
+  letter-spacing: 0.5px;
+}

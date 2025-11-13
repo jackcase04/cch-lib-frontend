@@ -1,0 +1,324 @@
+/* ----- GENERAL STYLES ----- */
+
+
+/* Make main content span full height of container to position footer respectably. */
+html, body {
+  height: 100%;               /* 1. Make the page full height */
+  margin: 0;
+}
+body {
+  display: flex;              /* 2. Flex column = magic */
+  flex-direction: column;
+}
+.main {                        /* or whatever wraps your <header>, <section>, etc. */
+  flex: 1;                    /* 3. This grows and pushes footer down */
+}
+
+.container {
+	
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Courier New", "Times New Roman", serif;
+	
+}
+
+.container-fluid {
+	
+	font-family: "Courier New", "Times New Roman", serif;
+	
+}
+
+/*
+.container-fluid {
+	
+	background-color: #FAF9F7; /*Just a thought to integrate into the page. 
+	
+}*/
+
+.full-width {
+	
+	padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+	
+}
+
+.extra-margin {
+	
+	margin: 0.5em;
+	
+}
+
+.extra-top-padding {
+	
+	padding-top: 3.1em;	
+}
+
+.extra-right-margin {
+	
+	margin-right: 0.5em;
+	
+}
+
+.extra-top-margin-nav {
+	
+	margin-top: 3.1em;
+	
+}
+
+.no-left-padding {
+	
+	padding-left: 0em;
+	
+}
+
+.no-padding-right {
+	
+	padding-right: 0em;
+	
+}
+
+/* If any text is off anywhere, this is likely the culprit. */
+.text-right {
+	
+	text-align: right;
+	
+}
+
+.hidden { display: none; } /*See does not hide anything... */
+
+h4 {
+	
+	font-family: "Courier New", "Times New Roman", serif;
+	font-weight: bold; 
+	
+}
+
+.glow-text {
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+}
+
+
+a:link, a:visited {
+	
+	color: rgba(0, 0, 0);
+	text-decoration: none;
+	cursor: pointer;
+	
+}
+
+a:link:active, a:visited:active {
+  color: (internal value);
+}
+
+
+.btn-submit {
+	
+	color: #000;
+	cursor: pointer;
+	font-weight: bold;
+	line-height: 45px;
+	margin: 0 0 2em;
+	max-width: 160px;
+	border: none;
+	position: relative;
+	text-transform: uppercase;
+	width: 100%;
+	
+}
+
+.btn-circling-border {
+	
+	background-color: hsl(39, 85%, 97%);
+	font-weight: 100;
+	
+	svg {
+		
+		height: 49px;
+		left: 0; /* Not sure if this style actually does anything.*/
+		position: absolute;
+		top: 0;
+		width: 100%;
+		
+	}
+	
+	rect {
+		
+		fill: none;
+		stroke: #000;
+		stroke-width: 4;
+		stroke-dasharray: 422, 0;
+		transition: all 0.35s linear;
+		
+	}
+	
+}
+
+.btn-circling-border:hover {
+	
+	background: hsl(39, 85%, 93%);
+	font-weight: 900;
+	letter-spacing: 1px;
+	
+	rect {
+		
+		stroke-width: 6;
+		stroke-dasharray: 15, 310;
+		stroke-dashoffset: 48;
+		transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+		
+	}
+	
+	
+}
+
+
+/* NAVIGTATION BAR */
+
+.topnav {
+  overflow: hidden;
+  font-family: "Courier New", "Times New Roman", serif;
+  font-weight: bold;
+  border-bottom-style: solid;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change spacing of links on hover */
+.topnav a:hover {
+  letter-spacing: 1px;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+  margin-top: 1em;
+  font-size: 2.5rem;
+}
+
+/* When the screen is less than 945 pixels wide, hide all links, except for the first one ("Dashboard"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 945px) {
+  .hamburger-links a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 945px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0.25em;
+    top: 0;
+  }  
+  
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+	
+	}
+	
+    .hamburger-links.responsive {
+	  
+		background-color: #333333;
+		border-radius: 1em 1em 0em 0em;
+	  
+    }
+  
+    .hamburger-links.responsive a:not(.icon) {
+	  
+	  color: #EEEEEE;
+	  
+    }
+  
+	.hamburger-links.responsive a:hover {
+	  color: #000000;
+	}
+}
+
+/* ——— ULTRA-MINIMAL SLIDE-UP (2025) ——— */
+.hamburger-links { 
+  max-height: 0; 
+  transition: max-height 1s ease; /*cubic-bezier(.4,0,.2,1)*/
+}
+
+.hamburger-links-inner {
+	overflow: hidden;
+}
+
+@media screen and (max-width: 945px) {
+  .hamburger-links.responsive { 
+    max-height: 600px ;   /* bigger than your tallest menu */
+  }
+  
+  /*TODO: Add the animation to the closing of the menu.*/
+  
+}
+
+
+/* FOOTER */ /* Still thinking on what looks good. */
+footer {
+	
+	position: relative;
+	text-align: center;
+	/*bottom: 0;*/
+	width: 100%;
+	height: 100%;
+	font-family: "Courier New", "Times New Roman", serif;
+	font-weight: bold;
+	background-color: #E1DED5; /*Options: Dark brown = #291F15 Tan = #B3A993*/
+	padding-top: 1em;
+	border-top-style: solid;
+	
+}
+
+.icon-credit-link {
+	
+	font-size: 0.75em;
+	
+}
+
+
+
+
+
+
+/* Color notes 
+
+Background (light):     #FAF9F7  (warm antiquarian cream)
+Background (dark):      #0F1A2A  (Beinecke midnight indigo)
+Primary text:           #1A2A44
+Available badge:        #8A9A7B  (sage moss)
+On-hold / reserved:     #4A5E7A  (dusty indigo)
+Due soon:               #D98A2B  (aged parchment amber)
+Overdue:                #A64242  (oxidized book-edge red)
+Accent lines:           #E8E2D7  (yellowed page)
+
+*/
+
+
+
+
+
+
+

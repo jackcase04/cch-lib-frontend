@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+	<meta charset="UTF-8">
+	<title>CCF Academic Drive</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
+	<!-- Icon library to show a hamburger menu (bars) on small screens -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Your Custom CSS (after Bootstrap so it can override) -->
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+	
+	<!-- Background image in nav bar -->
+	<style>
+		.topnav {
+		  background-image: url('imgs/book_stack_in_sun.png');
+		  background-color: rgba(255, 255, 255, 0.2);
+		  background-size: cover;
+		  background-repeat: no-repeat;
+		  background-position: right;
+		  max-height: 45%;
+		}
+	</style>
+
+</head>
+<body class="text-align:center">
+
+	<!-- Navigation bar --> 
+	<div class="container-fluid">
+		<nav>
+		
+			<div class="row">				
+				
+				<div class="topnav" id="nav-links">
+				  <a href="dashboard.html" class="active extra-right-margin"><img src="imgs/ccf_logo_no_back_2.png" alt="CCF Logo"></a>
+				  <div class="hamburger-links">
+					<div class="hamburger-links-inner">
+					  <a class="extra-top-margin-nav glow-text" href="view-library.html">View Library</a>
+					  <a class="extra-top-margin-nav glow-text" href="manage-library.html">Manage Library</a>
+					  <a class="extra-top-margin-nav glow-text" href="return.html">Return</a>
+					  <a class="extra-top-margin-nav glow-text" href="sign-out.html">Sign Out</a>
+					 </div>
+					  <a href="javascript:void(0);" class="icon">
+						<i class="fa fa-bars glow-text"></i>
+					  </a>
+				  </div>
+				</div>
+			
+			
+			</div>
+			
+			
+		</nav>
+	</div>
+
+	<!-- Main content-->
+	<div class="container-fluid main">
+		
+		<!-- Greeting Message -->
+		<br><br>
+		<div class="row text-center">
+		
+			<div class="col-xs-3 col-lg-4"></div>
+		
+			<div class="col-xs-6 col-lg-4">
+				<h6>Good <span id="greeting-time">[time]</span>, <span id="greeting-name">[name]</span>. Here you can find books and supplies for your classes.</h6>
+			</div>
+			
+			<div class="col-xs-3 col-lg-4"></div>
+		</div>
+		
+		<div class="row"></div>		
+		
+		<!-- Horizontal rule above -->
+		<br>
+		<div class="row">
+		
+			<div class="col-lg-3"></div>
+		
+			<div class="col-lg-6">
+				<hr class="bold-hr">
+			</div>
+			
+			<div class="col-lg-3"></div>
+		</div>
+				
+		<div class="row"></div>
+		
+		<br><br>
+		
+		<!-- Notifications Row-->
+		<div class="row text-center">
+		
+			<div class="col-xs-0 col-lg-0 col-xxl-1"></div>
+		  
+			<div class="col-xs-6 col-lg-4 col-xxl-3 extra-bottom-margin">
+			
+				<img class="img-aspect" src="imgs/book_stack_icon.png" alt="Stack of books">
+				<h4>Your Items</h4>
+				<hr class="responsive-hr">
+				<span id="return-notice">No items yet.</span>
+				
+				
+			</div>
+
+			<div class="col-xs-6 col-lg-4 col-xxl-4 extra-bottom-margin">
+			
+				<img class="img-aspect" src="imgs/library_card_icon.png" alt="Library card">
+				<h4>Check Out Notices</h4>
+				<hr class="responsive-hr">
+				<span id="chk-out-notice">Nothing here for now...</span>
+				
+			</div>
+
+			<div class="col-xs-6 col-lg-4 col-xxl-3 extra-bottom-margin">
+			
+				<img class="img-aspect" src="imgs/return_book_icon.png" alt="Book with return icon">
+				<h4>Return Notices</h4>
+				<hr class="responsive-hr">
+				<span id="return-notice">Nothing here. Looking good!</span>
+				
+			</div>
+				
+			<div class="col-xs-0 col-lg-0 col-xxl-1"></div>
+			
+		</div>
+			
+		
+		<div class="row"></div>
+	
+	</div>
+	
+	<!-- Footer --> 
+	<div class="container-fluid full-width">
+		<footer>
+			<p>&copyCCF <span>2025</span> | <a class="icon-credit-link"href="credits.html">Credits</a></p>
+		</footer>
+	</div>
+
+	<!-- Bootstrap JS Bundle (includes Popper) Placed here for working DOM.-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/dashboard.js"></script>
+</body>
+</html>
