@@ -34,3 +34,47 @@
 .letter-spacing a:hover {
   letter-spacing: 0.5px;
 }
+
+
+
+
+
+
+/* Some styles that I am working with:
+
+
+html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: url('imgs/book_stack_in_forest.png') center / cover no-repeat;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: "Courier New", "Times New Roman", serif;
+		}
+		
+		.login-content {
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			max-width: 420px;
+			text-align: center;
+			padding: 1rem;
+		  }
+
+
+
+
+
+
+
+
+
+
+
+ */

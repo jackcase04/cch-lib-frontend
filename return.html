@@ -17,6 +17,7 @@
 
     <!-- Your Custom CSS (after Bootstrap so it can override) -->
     <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/return.css">
 	
 	<!-- Background image in nav bar -->
 	<style>
@@ -43,7 +44,7 @@
 				  <a href="dashboard.html" class="active extra-right-margin"><img src="imgs/ccf_logo_no_back_2.png" alt="CCF Logo"></a>
 				  <div class="hamburger-links">
 					  <a class="extra-top-margin-nav glow-text" href="view-library.html">View Library</a>
-					  <a class="extra-top-margin-nav glow-text" href="manage-library.html">Manage Library</a>
+					  <!--<a class="extra-top-margin-nav glow-text" href="manage-library.html">Manage Library</a>-->
 					  <a class="extra-top-margin-nav glow-text" href="return.html">Return</a>
 					  <a class="extra-top-margin-nav glow-text" href="sign-out.html">Sign Out</a>
 					  <a href="javascript:void(0);" class="icon">
@@ -60,12 +61,76 @@
 	</div>
 
 
-	<div class="container-fluid">
+	<div class="container-fluid main">
+	
+		<!-- Greeting Message -->
+		<br><br>
+		<div class="row text-center">
 		
+			<div class="col-xs-3 col-lg-3"></div>
+		
+			<div class="col-xs-6 col-lg-6">
+				<h6>When you return your items, mark them as returned here. They will show as pending until the administrator confirms the return.</h6><hr>
+			</div>
+			
+			<div class="col-xs-3 col-lg-3"></div>
+		</div>
+		
+		<br><br>
+		
+		<div class="row">
+		
+			<div class="col-xs-0 col-md-0 col-xl-2"></div>
+			
+			<div class="col-xs-12 col-md-5 col-xl-3">
+			
+				<h5><img class="img-aspect" src="imgs/calendar_icon.png" alt="Calendar"><b>Due Date:</b></h5>
+				<hr>
+				<!-- Due date will be standardized to the last day of the semester (last day of finals) -->
+				<h6>Your items are due for return on <span id="return-date">12/19/2025</span>.</h6>
+				<br><br>
+			
+			</div>
+			
+			<div class="col-xs-12 col-md-7 col-xl-5">
+			
+				
+				<h5><img class="img-aspect" src="imgs/book_stack_icon.png" alt="Stack of books"><b>Your Items:</b></h5>
+				<hr>
+				
+				<div id="items-list">
+				
+					<!-- Sample item. Will be populated dynamically by JS. -->
+					<div class="return-item">
+						<p id="return-item-title"><b>Sample Book Title</b></p>
+						<button type="button" class="return-btn">Return Item</button>
+					
+					</div>
+					
+					<div class="return-item">
+						<p id="return-item-title"><b>This is a really long sample book title because there are going to be titles like this.</b></p>
+						<button type="button" class="return-btn">Return Item</button>
+					
+					</div>
+					
+					<div class="return-item">
+						<p id="return-item-title"><b>Another Sample Book Title</b></p>
+						<button type="button" class="return-btn" disabled>Pending</button>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			<div class="col-xs-0 col-md-0 col-xl-2"></div>
+		
+		</div>
 		
 	
 	</div>
 	
+	<br>	
 	
 	<!-- Footer --> 
 	<div class="container-fluid full-width">

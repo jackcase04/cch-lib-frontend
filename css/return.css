@@ -1,0 +1,102 @@
+.return-item {
+	
+	margin-bottom: 0.7em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	
+	padding: 0.4em;
+	border-radius: 0.5em;
+	background-color: #CEC2B9; /*Temp background color: C9BCB2*/
+	box-shadow: 4px 4px 4px #C7C7C3;
+	
+	display: flex;                  /* makes children sit on a row */
+	justify-content: space-between; /* title left, button right */
+	align-items: center;            /* vertical centering */
+	gap: 0.5rem;
+	
+}
+
+#return-item-title {
+	
+	margin: 0;           /* remove default paragraph margins */
+	padding: 0;
+	line-height: 1.4;    /* tighter vertical spacing */
+	
+}
+
+
+.return-btn {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: block; /* Original: inline-block */
+  flex-shrink: 0;       /* ← prevents button from shrinking */
+  font-family: Garamond, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 12px; 
+  margin: 0.3rem;
+  min-width: 120px;     /* ← reserves space (adjust as needed) */
+  outline: none;
+  padding: .65rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation; 
+  white-space: nowrap;
+  
+}
+
+.return-btn:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.return-btn:active {
+	background-color: #B2BFC9; /* Sample: E1DED5*/
+}
+
+.return-btn:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+/* Disabled button – gray background, no interaction */
+.return-btn:disabled {
+  background-color: #D2CDC6;   /* gray background */
+  color: #2C2C2C;
+  cursor: not-allowed;         /* shows "no" cursor */
+  pointer-events: none;        /* ← blocks ALL mouse events */
+  opacity: 0.8;                /* optional: slightly faded */
+}
+
+/* Remove hover/active/focus effects when disabled */
+.return-btn:disabled:hover,
+.return-btn:disabled:active,
+.return-btn:disabled:focus {
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px; /* keep original shadow */
+  transform: none;                                    /* no press-down */
+  background-color: #D2CDC6;                          /* stay gray */
+}
+
+.img-aspect{
+	
+	width: 55px;
+	height: 55px;
+	margin-right: 0.5em;
+	margin-left: 0.1em;
+	
+}
