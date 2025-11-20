@@ -180,7 +180,27 @@ a:link:active, a:visited:active {
 }
 
 
-/* NAVIGTATION BAR */
+/* NAVIGATION BAR */
+
+/* Shrink logo link on very small viewports TO CREATE IF HAVE TIME. 
+@media (max-width: 450px) {
+	
+	.top-nav {
+		margin: 0;
+		padding: 0;
+	}
+	
+	#ccf-logo-link img {
+	
+		width: 50%;
+	
+	}
+	
+	
+}*/
+
+
+
 
 .topnav {
   overflow: hidden;
@@ -204,10 +224,10 @@ a:link:active, a:visited:active {
   letter-spacing: 1px;
 }
 
-/* Add an active class to highlight the current page */
+/* Add an active class to highlight the current page *
 .topnav a.active {
   color: white;
-}
+}*/
 
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
@@ -216,7 +236,7 @@ a:link:active, a:visited:active {
   font-size: 2.5rem;
 }
 
-/* When the screen is less than 945 pixels wide, hide all links, except for the first one ("Dashboard"). Show the link that contains should open and close the topnav (.icon) */
+/* When the screen is less than 945 pixels wide, hide all links, except for the first one ("Dashboard"). Show the link that should open and close the topnav (.icon) */
 @media screen and (max-width: 945px) {
   .hamburger-links a {display: none;}
   .topnav a.icon {
@@ -250,7 +270,7 @@ a:link:active, a:visited:active {
   
     .hamburger-links.responsive a:not(.icon) {
 	  
-	  color: #EEEEEE;
+	  color: #EEEEEE; /* #EEEEEE;*/
 	  
     }
   
@@ -265,15 +285,19 @@ a:link:active, a:visited:active {
   transition: max-height 1s ease; /*cubic-bezier(.4,0,.2,1)*/
 }
 
-.hamburger-links-inner {
+.hamburger-links.responsive { 
+    max-height: 600px ;   /* bigger than your tallest menu */
+    /*transition: max-height 1s ease;*/
+  }
+
+/*.hamburger-links-inner {
 	overflow: hidden;
-}
+}*/
 
 @media screen and (max-width: 945px) {
   .hamburger-links.responsive { 
     max-height: 600px ;   /* bigger than your tallest menu */
-  }
-  
+  }  
   /*TODO: Add the animation to the closing of the menu.*/
   
 }

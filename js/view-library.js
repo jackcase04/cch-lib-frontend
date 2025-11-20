@@ -69,7 +69,7 @@ jQuery(document).ready(function() {
 	
 	//Display search fields based on selected search category
 	dropdownRadios.forEach((button) => {
-		button.addEventListener('change', (e) => {
+		button.addEventListener('click', (e) => {
 			if(e.target.value === '2') {
 				selectedOption.text("Books");
 				bookFieldsContainer.show();
