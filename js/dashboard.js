@@ -1,9 +1,26 @@
+import {API} from './api/api.js'; 
+
 jQuery(document).ready(function() {
 	
-	//Assign page elements
+	//const yourItemsDefault = "No items yet."; 
+	//const chkOutNoticeDefault = "Nothing here for now..."; 
+	//const returnNotices = "Nothing here. Looking good.";
+	
 	var navLinks = jQuery("#nav-links"), 
 		hamburgerMenu = jQuery(".icon"),
-		hamburgerLinks = jQuery(".hamburger-links");
+		hamburgerLinks = jQuery(".hamburger-links"), 
+		greetingTime = jQuery("#greeting-time"), 
+		greetingName = jQuery("#greeting-name"), 
+		yourItemsList = jQuery("#your-items-list"), 
+		chkOutNotice = jQuery("#check-out-notice"), 
+		returnNotice = jQuery("#return-notice"); 
+	
+	
+	loadGreetingTime();
+	getUserName();
+	getUserItems();
+	getCheckOutNotices(); 
+	getReturnNotices();
 	
 	
 	//Click event for hamburger menu
@@ -16,6 +33,35 @@ jQuery(document).ready(function() {
 		hamburgerLinks.find("a").toggleClass("extra-top-margin-nav") //This fixes the nav-link issue with expanding with hamburger open. 
 		
 	});	
+	
+	
+	function loadGreetingTime() {
+		var date = new Date();
+		var time = date.getHours();
+		if(time < 12) {
+			greetingTime.text("morning"); 
+		} else if (time < 17) {
+			greetingTime.text("afternoon"); 
+		} else {
+			greetingTime.text("evening"); 
+		}
+	}
+	
+	function getUserName() {
+		//Make call to API. 
+	}
+	
+	function getUserItems() {
+		//TODO
+	}
+	
+	function getCheckOutNotices() {
+		//TODO
+	}
+	
+	function getReturnNotices() {
+		//TODO
+	}
 	
 	
 });
