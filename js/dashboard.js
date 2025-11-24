@@ -48,27 +48,15 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserItems() {
-		API.getUserItems(userId).done(function(response) {
-			
-		}).fail(function() {
-			console.log("Failed to retrieve user items.");
-		}); 
+		//TODO
 	}
 	
 	function getCheckOutNotices() {
-		API.getCheckOutNotices(userId).done(function(response) {
-			
-		}).fail(function() {
-			console.log("Failed to retrieve check out notices.");
-		}); 
+		//TODO
 	}
 	
 	function getReturnNotices() {
-		API.getReturnNotices(userId).done(function(response) {
-			
-		}).fail(function() {
-			console.log("Failed to retrieve return notices.")
-		}); 
+		//TODO 
 	}
 	
 	
