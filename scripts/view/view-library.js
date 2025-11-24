@@ -1,4 +1,4 @@
-import {API} from './api/api.js'; 
+import {API} from '/scripts/api/api.js'; 
 
 jQuery(document).ready(function() {
 	
