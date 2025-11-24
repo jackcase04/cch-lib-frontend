@@ -179,29 +179,6 @@ a:link:active, a:visited:active {
 	
 }
 
-
-/* NAVIGATION BAR */
-
-/* Shrink logo link on very small viewports TO CREATE IF HAVE TIME. 
-@media (max-width: 450px) {
-	
-	.top-nav {
-		margin: 0;
-		padding: 0;
-	}
-	
-	#ccf-logo-link img {
-	
-		width: 50%;
-	
-	}
-	
-	
-}*/
-
-
-
-
 .topnav {
   overflow: hidden;
   font-family: "Courier New", "Times New Roman", serif;
