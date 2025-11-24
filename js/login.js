@@ -11,23 +11,8 @@ jQuery(document).ready(function() {
 	signInForm.on('submit', function(e) {
 		e.preventDefault();
 		
-		API.login(email.value, password.value).done(function(response) {
-			if(response.success) {
-				location.replace("./dashboard.html");
-			} else {
-				alert(response.message || 'Invalid credentials'); 
-			}
-		}).fail(function() {
-			alert("Login failed - Please try again later."); 
-		}); 
+		//Call AJAX
 		
 	});
-	
-	
-	
-	
-	
-	
-	
 	
 });

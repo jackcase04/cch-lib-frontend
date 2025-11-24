@@ -2,10 +2,6 @@ import {API} from './api/api.js';
 
 jQuery(document).ready(function() {
 	
-	//const yourItemsDefault = "No items yet."; 
-	//const chkOutNoticeDefault = "Nothing here for now..."; 
-	//const returnNotices = "Nothing here. Looking good.";
-	
 	var navLinks = jQuery("#nav-links"), 
 		hamburgerMenu = jQuery(".icon"),
 		hamburgerLinks = jQuery(".hamburger-links"), 
@@ -48,19 +44,31 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserName() {
-		//Make call to API. 
+		 //TODO
 	}
 	
 	function getUserItems() {
-		//TODO
+		API.getUserItems(userId).done(function(response) {
+			
+		}).fail(function() {
+			console.log("Failed to retrieve user items.");
+		}); 
 	}
 	
 	function getCheckOutNotices() {
-		//TODO
+		API.getCheckOutNotices(userId).done(function(response) {
+			
+		}).fail(function() {
+			console.log("Failed to retrieve check out notices.");
+		}); 
 	}
 	
 	function getReturnNotices() {
-		//TODO
+		API.getReturnNotices(userId).done(function(response) {
+			
+		}).fail(function() {
+			console.log("Failed to retrieve return notices.")
+		}); 
 	}
 	
 	

@@ -1,7 +1,6 @@
 class APIclient {
 	
-	//https://api.ccf-academic-drive
-	BASE_URL = "https://api.ccf-academic-drive";
+	BASE_URL = "https://api.ccf-academic-drive"; //Some URL to go here. Current URL only a placeholder. 
 	constructor(baseURL) {
 		this.BASE_URL = baseURL || this.BASE_URL;
 	}
@@ -14,38 +13,155 @@ class APIclient {
 		});
 		throw new Error(`API request failed: ${jqXHR.status} ${textStatus}`);
 	};
-
-	//Sign-in ---------------------------------------------------
-	login(email, password) {
+	
+	addLibraryItem(itemInfo) {
 		return jQuery.ajax({
-			url: `${this.BASE_URL}/login`, 
-			method: 'POST', //POST to protect credentials. 
-			data: {email, password}, 
-			dataType: 'json',
-			xhrFields: { withCredentials: true }
+			data: itemInfo, 
+			dataType: 'json', 
+			method: 'POST', 
+			url: `${this.BASE_URL}/addLibraryItem`
+		}).done(function(response) {
+			//empty for now.
 		}).fail(this._handleError); 
-		
 	}
 	
-	//To continue working on. 
-	//Dashboard - API to test full stack connectivity. 
-	getUserName(userID) {
+	deleteLibraryItem(itemInfo) {
 		return jQuery.ajax({
-			url: `${this.BASE_URL}/UserName`, 
+			data: itemInfo, 
+			dataType: 'json', 
+			method: 'DELETE', 
+			url: `${this.BASE_URL}/deleteLibraryItem`
+		}).done({
+			//Empty
+		}).fail(this._handleError);
+	}
+	
+	getCheckOutNotices(userInfo) { //Cache
+		return jQuery.ajax({
+			data: userInfo, 
+			dataType: 'json', 
 			method: 'GET', 
-			dataType: 'json',
-			data: JSON.stringify(dataObject)
+			url: `${this.BASE_URL}/checkOutNotices`
+		}).done(function(response) {
+			return response;
 		}).fail(this._handleError); 
 	}
 	
-	//Sign out --------------------------------------------------
+	getReturnNotices(userInfo) { //Cache
+		return jQuery.ajax({
+			data: userInfo, 
+			dataType: 'json', 
+			method: 'GET', 
+			url:`${this.BASE_URL}/returnNotices`
+		}).done(function(response) {
+			return response;
+		}).fail(this._handleError); 
+	}
+	
+	getUserItems(userInfo) { //Cache
+		return jQuery.ajax({
+			data: userInfo, 
+			dataType: 'json', 
+			method: 'GET', 
+			url: `${this.BASE_URL}/userItems`
+		}).done(function(response) {
+			return response;
+		}).fail(this._handleError);
+	}
+	
+	getUserName(userInfo) { //May not need, but here for now.
+		return jQuery.ajax({
+			data: userInfo, 
+			dataType: 'json', 
+			method: 'GET', 
+			url: `${this.BASE_URL}/userName`
+		}).done(function(response) {
+			return response;
+		}).fail(this._handleError); 
+	}
+	
+	//Login user
+	login(credentials) {
+		return jQuery.ajax({
+			data: credentials,
+			dataType: 'json', 
+			method: 'POST', 
+			url: `${this.BASE_URL}/login` 
+		}).done(function(response){ 
+			//Intialize session to store userID. 
+		}).fail(function(jqXHR, textStatus, error){
+			console.error("API error: ", { //Just for now. Thinking about my formatting.
+				status: jqXHR.status, 
+				statusText: jqXHR.statusText, 
+				response: jqXHR.responseText || jqXHR.responseJSON, textStatus, error
+			}); 
+		}); 
+	}
+	
+	//Admin confirmation of item return
+	markItemReturned(data) {
+		return jQuery.ajax({
+			data: data, 
+			dataType: 'json', 
+			method: 'PUT', 
+			url: `${this.BASE_URL}/markReturned`
+		}).done(function(response) {
+			return response;
+		}).fail(this._handleError); 
+	}
+	
+	//User claim of item return
+	returnItem(data) {
+		return jQuery.ajax({
+			data: data, 
+			dataType: 'json', 
+			method: 'PUT', 
+			url: `${this.BASE_URL}/returnItem`
+		}).done(function(response) {
+			return response; 
+		}).fail(this._handleError); 
+	}
+	
+	searchLibrary(searchFilters) {
+		return jQuery.ajax({
+			data: searchFilters, 
+			dataType: 'json', 
+			method: 'GET', 
+			url: `${this.BASE_URL}/searchLibrary`
+		}).done(function(response) {
+			return response;
+		}).fail(this._handleError); 
+	}
+	
+	signUp(userInfo) {
+		return jQuery.ajax({
+			data: userInfo, 
+			dataType: 'json', 
+			method: 'POST', 
+			url: `${this.BASE_URL}/signUp`
+		}).done(function(response) {
+			//empty
+		}).fail(this._handleError); 
+	}
+	
+	updateLibraryItem(itemInfo) {
+		return jQuery.ajax({
+			data: itemInfo, 
+			dataType: 'json', 
+			method: 'PUT', 
+			url: `${this.BASE_URL}/updateLibraryItem`
+		}).done(function(response) {
+			//empty
+		}).fail(this._handleError); 
+	}
+	
+	
+	//Log out user. 
 	logout() {
         return jQuery.get('/logout'); //Java servlet invalidates session.
     }
     
-    
-    
-	//Other utility stuff ---------------------------------------
+	//Checks if session valid.
 	checkSession() {
         return jQuery.get('/check-session');  // returns {loggedIn: true/false}
     }
