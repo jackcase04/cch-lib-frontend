@@ -7,7 +7,7 @@
   "rewrites": [
     {
       "source": "/",                               
-      "destination": "/login.html"                  
+      "destination": "/login"                  
     }
   ],
   "cleanUrls": true                                   
