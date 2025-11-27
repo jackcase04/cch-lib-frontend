@@ -1,16 +1,14 @@
 {
-
-	"framework": null,
-	
-	"outputDirectory": "public",
-
-	"rewrites": [
-		{
-			"source": "/", 
-			"destination": "login.html"
-		}
-	], 
-	
-	"cleanUrls": true
-
+  "framework": null,                                   
+  "builds": [
+    { "src": "public/**", "use": "@vercel/static" }   
+  ],
+  "outputDirectory": "public",                        
+  "rewrites": [
+    {
+      "source": "/",                               
+      "destination": "/login.html"                  
+    }
+  ],
+  "cleanUrls": true                                   
 }
