@@ -87,7 +87,8 @@ class APIclient {
 	//Login user
 	login(credentials) {
 		return jQuery.ajax({
-			data: credentials,
+			contentType: 'application/json',
+			data: JSON.stringify(credentials),
 			dataType: 'json', 
 			method: 'POST', 
 			url: `${this.HOST_URL}/${this.AUTH_CONTROL}/login`,
