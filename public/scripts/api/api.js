@@ -5,6 +5,10 @@ class APIclient {
 		this.BASE_URL = baseURL || this.BASE_URL;
 	}
 	
+	HOST_URL = "cch-lib-backend-production.up.railway.app";
+	AUTH_CONTROL = '/auth';
+	
+	
 	_handleError = (jqXHR, textStatus, error) => {
 		console.error("API error: ", {
 			status: jqXHR.status,
@@ -86,8 +90,10 @@ class APIclient {
 			data: credentials,
 			dataType: 'json', 
 			method: 'POST', 
-			url: `${this.BASE_URL}/login` 
-		}).done(function(response){ 
+			url: `${this.HOST_URL}/${this.AUTH_CONTROL}/login`,
+			xhrFields: { withCredentials: true }
+		}).done(function(response){
+			console.log("Successful login."); //Tmp 
 			//Intialize session to store userID. 
 		}).fail(function(jqXHR, textStatus, error){
 			console.error("API error: ", { //Just for now. Thinking about my formatting.
