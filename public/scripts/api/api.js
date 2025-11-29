@@ -5,7 +5,7 @@ class APIclient {
 		this.BASE_URL = baseURL || this.BASE_URL;
 	}
 	
-	HOST_URL = "cch-lib-backend-production.up.railway.app";
+	HOST_URL = "https://cch-lib-backend-production.up.railway.app";
 	AUTH_CONTROL = '/auth';
 	
 	
