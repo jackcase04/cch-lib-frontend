@@ -6,7 +6,7 @@ class APIclient {
 	}
 	
 	HOST_URL = "https://cch-lib-backend-production.up.railway.app";
-	AUTH_CONTROL = '/auth';
+	AUTH_CONTROL = 'auth';
 	
 	
 	_handleError = (jqXHR, textStatus, error) => {
