@@ -52,6 +52,9 @@
 	  letter-spacing: 0.5px;
 	}
 
+	#login-error-field {
+		color: #880808;
+	}
 	
 	html, body {
 		height: 100%;
@@ -134,6 +137,8 @@
 				
 				<h2 class="text-center"><b>Sign In</b></h2>
 				<br>
+				
+				<div id="login-error-field" class="text-center hidden"><b>Login failed. Please try again later.</b><br></div>
 			
 				<form id="sign-in-form" action="">
 					<label for="email" class="input-label"><h5><b>Email:</b></h5></label><br>
