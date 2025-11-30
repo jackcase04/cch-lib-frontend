@@ -32,7 +32,7 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserName() {
-		 var name = API.getUserName(userId); 
+		 var name = API.getUserName(); 
 		 greetingName.text(name); 
 	}
 	
