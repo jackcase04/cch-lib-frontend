@@ -10,8 +10,8 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		
 		var credentials = {}
-		credentials.email = email.value;
-		credentials.password = password.value;
+		credentials.email = email.value.trim();
+		credentials.password = password.value.trim();
 		
 		API.login(credentials).done(function(response) {
 			window.location.replace("/public/dashboard.html");

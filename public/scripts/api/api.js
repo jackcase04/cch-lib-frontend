@@ -1,11 +1,6 @@
 class APIclient {
 	
-	BASE_URL = "https://api.ccf-academic-drive"; //Some URL to go here. Current URL only a placeholder. 
-	constructor(baseURL) {
-		this.BASE_URL = baseURL || this.BASE_URL;
-	}
-	
-	HOST_URL = "https://cch-lib-backend-production.up.railway.app";
+	BASE_URL = "https://cch-lib-backend-production.up.railway.app";
 	AUTH_CONTROL = 'auth';
 	
 	
@@ -20,21 +15,34 @@ class APIclient {
 	
 	addLibraryItem(itemInfo) {
 		return jQuery.ajax({
-			data: itemInfo, 
+			contentType: 'application/json',
+			data: JSON.stringify(itemInfo), 
 			dataType: 'json', 
 			method: 'POST', 
-			url: `${this.BASE_URL}/addLibraryItem`
+			url: `${this.BASE_URL}/addLibraryItem`,
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			//empty for now.
 		}).fail(this._handleError); 
 	}
 	
+	checkSession() {
+		return jQuery.ajax({
+			dataType: 'json', 
+			method: 'GET', 
+			url: `${this.HOST_URL}/${this.AUTH_CONTROL}/check-session`,
+			xhrFields: { withCredentials: true }
+		}).fail(this._handleError); 
+	}
+	
 	deleteLibraryItem(itemInfo) {
 		return jQuery.ajax({
-			data: itemInfo, 
+			contentType: 'application/json', 
+			data: JSON.stringify(itemInfo), 
 			dataType: 'json', 
 			method: 'DELETE', 
-			url: `${this.BASE_URL}/deleteLibraryItem`
+			url: `${this.BASE_URL}/deleteLibraryItem`, 
+			xhrFields: {withCredentials: true}
 		}).done({
 			//Empty
 		}).fail(this._handleError);
@@ -42,10 +50,12 @@ class APIclient {
 	
 	getCheckOutNotices(userInfo) { //Cache
 		return jQuery.ajax({
-			data: userInfo, 
+			contentType: 'application/json', 
+			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/checkOutNotices`
+			url: `${this.BASE_URL}/checkOutNotices`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
@@ -53,10 +63,12 @@ class APIclient {
 	
 	getReturnNotices(userInfo) { //Cache
 		return jQuery.ajax({
-			data: userInfo, 
+			contentType: 'application/json',
+			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'GET', 
-			url:`${this.BASE_URL}/returnNotices`
+			url:`${this.BASE_URL}/returnNotices`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
@@ -64,10 +76,12 @@ class APIclient {
 	
 	getUserItems(userInfo) { //Cache
 		return jQuery.ajax({
-			data: userInfo, 
+			contentType: 'application/json',
+			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userItems`
+			url: `${this.BASE_URL}/userItems`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError);
@@ -75,10 +89,12 @@ class APIclient {
 	
 	getUserName(userInfo) { //May not need, but here for now.
 		return jQuery.ajax({
-			data: userInfo, 
+			contentType: 'application/json', 
+			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userName`
+			url: `${this.BASE_URL}/userName`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
@@ -91,7 +107,7 @@ class APIclient {
 			data: JSON.stringify(credentials),
 			dataType: 'json', 
 			method: 'POST', 
-			url: `${this.HOST_URL}/${this.AUTH_CONTROL}/login`,
+			url: `${this.BASE_URL}/${this.AUTH_CONTROL}/login`,
 			xhrFields: { withCredentials: true }
 		}).done(function(response){
 			console.log("Successful login."); //Tmp 
@@ -105,13 +121,24 @@ class APIclient {
 		}); 
 	}
 	
+	logout() {
+		return jQuery.ajax({
+			dataType: 'json',
+			method: 'POST', 
+			url: `${this.HOST_URL}/${this.AUTH_CONTROL}/logout`,
+			xhrFields: { withCredentials: true }
+		}); 
+	}
+	
 	//Admin confirmation of item return
 	markItemReturned(data) {
 		return jQuery.ajax({
-			data: data, 
+			contentType: 'application/json', 
+			data: JSON.stringify(data), 
 			dataType: 'json', 
 			method: 'PUT', 
-			url: `${this.BASE_URL}/markReturned`
+			url: `${this.BASE_URL}/markReturned`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
@@ -120,10 +147,12 @@ class APIclient {
 	//User claim of item return
 	returnItem(data) {
 		return jQuery.ajax({
-			data: data, 
+			contentType: 'application/json',
+			data: JSON.stringify(data), 
 			dataType: 'json', 
 			method: 'PUT', 
-			url: `${this.BASE_URL}/returnItem`
+			url: `${this.BASE_URL}/returnItem`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response; 
 		}).fail(this._handleError); 
@@ -131,10 +160,12 @@ class APIclient {
 	
 	searchLibrary(searchFilters) {
 		return jQuery.ajax({
-			data: searchFilters, 
+			contentType: 'application/json',
+			data: JSON.stringify(searchFilters), 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/searchLibrary`
+			url: `${this.BASE_URL}/searchLibrary`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
@@ -142,10 +173,12 @@ class APIclient {
 	
 	signUp(userInfo) {
 		return jQuery.ajax({
-			data: userInfo, 
+			contentType: 'application/json',
+			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'POST', 
-			url: `${this.BASE_URL}/signUp`
+			url: `${this.BASE_URL}/signUp`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			//empty
 		}).fail(this._handleError); 
@@ -153,27 +186,16 @@ class APIclient {
 	
 	updateLibraryItem(itemInfo) {
 		return jQuery.ajax({
-			data: itemInfo, 
+			contentType: 'application/json',
+			data: JSON.stringify(itemInfo), 
 			dataType: 'json', 
 			method: 'PUT', 
-			url: `${this.BASE_URL}/updateLibraryItem`
+			url: `${this.BASE_URL}/updateLibraryItem`, 
+			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			//empty
 		}).fail(this._handleError); 
-	}
-	
-	
-	//Log out user. 
-	logout() {
-        return jQuery.get('/logout'); //Java servlet invalidates session.
-    }
-    
-	//Checks if session valid.
-	checkSession() {
-        return jQuery.get('/check-session');  // returns {loggedIn: true/false}
-    }
-	
-	
+	}	
 	
 }
 
