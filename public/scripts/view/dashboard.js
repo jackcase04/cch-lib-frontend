@@ -12,24 +12,15 @@ jQuery(document).ready(function() {
 		returnNotice = jQuery("#return-notice"); 
 	
 	
-	loadGreetingTime();
-	getUserName();
-	getUserItems();
-	getCheckOutNotices(); 
-	getReturnNotices();
+	onload();
 	
-	
-	//Click event for hamburger menu
-	hamburgerMenu.on( "click", function(e) {
-		e.preventDefault();
-		
-		// Toggle responsive class
-        navLinks.toggleClass("responsive");
-		hamburgerLinks.toggleClass("responsive");
-		hamburgerLinks.find("a").toggleClass("extra-top-margin-nav") //This fixes the nav-link issue with expanding with hamburger open. 
-		
-	});	
-	
+	function onload() {
+		loadGreetingTime();
+		getUserName();
+		getUserItems();
+		getCheckOutNotices(); 
+		getReturnNotices();
+	}
 	
 	function loadGreetingTime() {
 		var date = new Date();
@@ -44,7 +35,7 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserName() {
-		 //TODO
+		 
 	}
 	
 	function getUserItems() {
@@ -58,6 +49,18 @@ jQuery(document).ready(function() {
 	function getReturnNotices() {
 		//TODO 
 	}
+	
+	
+	//Click event for hamburger menu
+	hamburgerMenu.on( "click", function(e) {
+		e.preventDefault();
+		
+		// Toggle responsive class
+        navLinks.toggleClass("responsive");
+		hamburgerLinks.toggleClass("responsive");
+		hamburgerLinks.find("a").toggleClass("extra-top-margin-nav") //Fixes nav-link issue with expanding with hamburger open. 
+		
+	});	
 	
 	
 });

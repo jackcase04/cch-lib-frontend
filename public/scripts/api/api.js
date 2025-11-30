@@ -48,52 +48,44 @@ class APIclient {
 		}).fail(this._handleError);
 	}
 	
-	getCheckOutNotices(userInfo) { //Cache
-		return jQuery.ajax({
-			contentType: 'application/json', 
-			data: JSON.stringify(userInfo), 
+	getCheckOutNotices(userId) { //Cache
+		return jQuery.ajax({ 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/checkOutNotices`, 
+			url: `${this.BASE_URL}/checkOutNotices/${encodeURIComponent(userId)}`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
 	}
 	
-	getReturnNotices(userInfo) { //Cache
+	getReturnNotices(userId) { //Cache
 		return jQuery.ajax({
-			contentType: 'application/json',
-			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'GET', 
-			url:`${this.BASE_URL}/returnNotices`, 
+			url:`${this.BASE_URL}/returnNotices/${encodeURIComponent(userId)}`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
 	}
 	
-	getUserItems(userInfo) { //Cache
+	getUserItems(userId) { //Cache
 		return jQuery.ajax({
-			contentType: 'application/json',
-			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userItems`, 
+			url: `${this.BASE_URL}/userItems/${encodeURIComponent(userId)}`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError);
 	}
 	
-	getUserName(userInfo) { //May not need, but here for now.
-		return jQuery.ajax({
-			contentType: 'application/json', 
-			data: JSON.stringify(userInfo), 
+	getUserName(userId) {
+		return jQuery.ajax({ 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userName`, 
+			url: `${this.BASE_URL}/userName/${encodeURIComponent(userId)}`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
@@ -163,7 +155,7 @@ class APIclient {
 			contentType: 'application/json',
 			data: JSON.stringify(searchFilters), 
 			dataType: 'json', 
-			method: 'GET', 
+			method: 'POST', 
 			url: `${this.BASE_URL}/searchLibrary`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
