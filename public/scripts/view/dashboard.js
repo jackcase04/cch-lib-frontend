@@ -12,15 +12,12 @@ jQuery(document).ready(function() {
 		returnNotice = jQuery("#return-notice"); 
 	
 	
-	onload();
-	
-	function onload() {
-		loadGreetingTime();
-		getUserName();
-		getUserItems();
-		getCheckOutNotices(); 
-		getReturnNotices();
-	}
+	//On load. 
+	loadGreetingTime();
+	getUserName();
+	getUserItems();
+	getCheckOutNotices(); 
+	getReturnNotices();
 	
 	function loadGreetingTime() {
 		var date = new Date();
@@ -35,7 +32,8 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserName() {
-		 
+		 var name = API.getUserName(userId); 
+		 greetingName.text(name); 
 	}
 	
 	function getUserItems() {

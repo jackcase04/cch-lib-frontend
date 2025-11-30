@@ -48,44 +48,44 @@ class APIclient {
 		}).fail(this._handleError);
 	}
 	
-	getCheckOutNotices(userId) { //Cache
+	getCheckOutNotices() { //Cache
 		return jQuery.ajax({ 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/checkOutNotices/${encodeURIComponent(userId)}`, 
+			url: `${this.BASE_URL}/checkOutNotices`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
 	}
 	
-	getReturnNotices(userId) { //Cache
+	getReturnNotices() { //Cache
 		return jQuery.ajax({
 			dataType: 'json', 
 			method: 'GET', 
-			url:`${this.BASE_URL}/returnNotices/${encodeURIComponent(userId)}`, 
+			url:`${this.BASE_URL}/returnNotices`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError); 
 	}
 	
-	getUserItems(userId) { //Cache
+	getUserItems() { //Cache
 		return jQuery.ajax({
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userItems/${encodeURIComponent(userId)}`, 
+			url: `${this.BASE_URL}/userItems`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
 		}).fail(this._handleError);
 	}
 	
-	getUserName(userId) {
+	getUserName() {
 		return jQuery.ajax({ 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userName/${encodeURIComponent(userId)}`, 
+			url: `${this.BASE_URL}/userName`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			return response;
