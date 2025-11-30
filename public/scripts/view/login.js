@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
 		
 		API.login(credentials).done(function(response) {
 			loginError.hidden = true;
-			window.location.replace("/public/dashboard.html");
+			window.location.replace("/dashboard.html");
 		}).fail(function(){
 			loginError.hidden = false;
 		}); 
