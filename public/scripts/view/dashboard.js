@@ -34,6 +34,7 @@ jQuery(document).ready(function() {
 		
 		API.getUserName().done(function(userName) {
 			
+			console.log(userName); //Debug
 			if(userName != null) {
 				greetingName.text(userName); 
 			}
