@@ -17,11 +17,10 @@ jQuery(document).ready(function() {
 	getUserName();
 	getUserItems();
 	getCheckOutNotices(); 
-	getReturnNotices();
+	getReturnDate();
 	
 	function loadGreetingTime() {
-		var date = new Date();
-		var time = date.getHours();
+		var time = new Date().getHours();
 		if(time < 12) {
 			greetingTime.text("morning"); 
 		} else if (time < 17) {
@@ -37,9 +36,8 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserItems() {
-		//var userItems = API.getUserItems();
-		//Do stuff with user items
-		if(true) { //userItems.length != 0
+		var userItems = API.getUserItems();
+		if(userItems.length != 0) {
 			yourItems.innerHTML = '';
 			
 			var list = document.createElement('ul'); 
@@ -47,13 +45,12 @@ jQuery(document).ready(function() {
 			list.classList.add('unordered-items-list'); 
 			yourItems.appendChild(list); 
 			
-			//TEST OBJECTS
+			/*TEST OBJECTS
 			var userItems = [];
 			userItems.push({'title': 'Chemistry: A Molecular Approach'});
 			userItems.push({'title': 'Elementary Differential Equations and Boundary Value Problems'});
-			userItems.push({'title': 'MATLAB: A Practical Introduction to Programming and Problem Solving'});
+			userItems.push({'title': 'MATLAB: A Practical Introduction to Programming and Problem Solving'});*/
 	
-			
 			userItems.forEach(item => {
 				var li = document.createElement('li');
 				li.textContent = item.title;
@@ -64,14 +61,18 @@ jQuery(document).ready(function() {
 	}
 	
 	function getCheckOutNotices() {
-		var checkoutNotices = API.getCheckOutNotices();
+		var checkOutNotices = API.getCheckOutNotices();
 		//Do stuff with check out notices.
 	}
 	
-	function getReturnNotices() {
-		//Check month. If December or May (Or July), get return notices. 
-		returnNotices = API.getReturnNotices();
-		//Do stuff with return notices.
+	function getReturnDate() {
+		//returnNotices = API.getReturnDate();
+		var month = new Date().getMonth();
+		if(month == 5 || month == 8 || month == 12) {
+			//For now, just a hardcode. But will pull date from database.
+			returnNotice.innerHTML = ''; 
+			returnNotice.textContent = "You items are due on 12/19/2025."
+		}
 	}
 	
 	
