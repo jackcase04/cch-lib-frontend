@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 		hamburgerLinks = jQuery(".hamburger-links"), 
 		greetingTime = jQuery("#greeting-time"), 
 		greetingName = jQuery("#greeting-name"), 
-		yourItemsList = jQuery("#your-items-list"), 
+		userItemsList = jQuery("#user-items-list"), 
 		chkOutNotice = jQuery("#check-out-notice"), 
 		returnNotice = jQuery("#return-notice"); 
 	
@@ -37,15 +37,33 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserItems() {
-		//TODO
+		//var userItems = API.getUserItems();
+		//Do stuff with user items
+		if(true) { //userItems.length != 0
+			var list = document.createElement('ul'); 
+			list.setAttribute('id', '');
+			list.classList.add('user-items-list'); 
+			userItemsList.appendChild(list); 
+			
+			
+			//userItems.forEach(item => {
+			
+				
+				
+			
+			//});
+		}
+		 
 	}
 	
 	function getCheckOutNotices() {
-		//TODO
+		var checkoutNotices = API.getCheckOutNotices();
+		//Do stuff with check out notices.
 	}
 	
 	function getReturnNotices() {
-		//TODO 
+		returnNotices = API.getReturnNotices();
+		//Do stuff with return notices.
 	}
 	
 	
@@ -59,6 +77,20 @@ jQuery(document).ready(function() {
 		hamburgerLinks.find("a").toggleClass("extra-top-margin-nav") //Fixes nav-link issue with expanding with hamburger open. 
 		
 	});	
+	
+	//TEST OBJECTS
+	var userItems = [];
+	userItems.push({});
+	userItems.push();
+	userItems.push();
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 });
