@@ -85,7 +85,7 @@ class APIclient {
 		return jQuery.ajax({ 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/userName`, 
+			url: `${this.BASE_URL}/user/name`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
 			//empty
