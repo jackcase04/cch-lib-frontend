@@ -77,7 +77,7 @@ class APIclient {
 			url: `${this.BASE_URL}/userItems`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
-			return response;
+			//return response;
 		}).fail(this._handleError);
 	}
 	

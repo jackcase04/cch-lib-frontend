@@ -36,29 +36,30 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserItems() {
-		var userItems = null;
-		userItems = API.getUserItems();
-		if(userItems != null && userItems.length != 0) {
-			yourItems.innerHTML = '';
+		
+		API.getUserItems().done(function(userItems) {
 			
-			var list = document.createElement('ul'); 
-			list.setAttribute('id', 'user-items-list');
-			list.classList.add('unordered-items-list'); 
-			yourItems.appendChild(list); 
+			if(userItems != null && userItems.length > 0) {
+				yourItems.innerHTML = '';
 			
-			/*TEST OBJECTS
-			var userItems = [];
-			userItems.push({'title': 'Chemistry: A Molecular Approach'});
-			userItems.push({'title': 'Elementary Differential Equations and Boundary Value Problems'});
-			userItems.push({'title': 'MATLAB: A Practical Introduction to Programming and Problem Solving'});*/
-	
-			userItems.forEach(item => {
-				var li = document.createElement('li');
-				li.textContent = item.title;
-				list.appendChild(li); 				
-			});
-		}
-		 
+				var list = document.createElement('ul'); 
+				list.setAttribute('id', 'user-items-list');
+				list.classList.add('unordered-items-list'); 
+				yourItems.appendChild(list); 
+				
+				userItems.forEach(item => {
+					var li = document.createElement('li');
+					li.textContent = item.title;
+					list.appendChild(li); 				
+				});
+			}
+			
+		}).fail(function(jqXHR, textStatus, error) {
+			console.error("Failed to load user items: ", jqXHR, textStatus, error);
+			yourItems.innerHTML = ''; 
+			yourItems.textContent = 'There was an error loading your items.'
+		}); 
+		
 	}
 	
 	function getCheckOutNotices() {
