@@ -7,9 +7,9 @@ jQuery(document).ready(function() {
 		hamburgerLinks = jQuery(".hamburger-links"), 
 		greetingTime = jQuery("#greeting-time"), 
 		greetingName = jQuery("#greeting-name"), 
-		yourItems = jQuery("#your-items"), 
-		chkOutNotice = jQuery("#check-out-notice"), 
-		returnNotice = jQuery("#return-notice"); 
+		yourItems = jQuery("#your-items")[0], 
+		chkOutNotice = jQuery("#check-out-notice")[0], 
+		returnNotice = jQuery("#return-notice")[0]; 
 	
 	
 	//On load. 
