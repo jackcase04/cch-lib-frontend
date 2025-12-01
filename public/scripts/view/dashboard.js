@@ -44,7 +44,7 @@ jQuery(document).ready(function() {
 			
 			var list = document.createElement('ul'); 
 			list.setAttribute('id', 'user-items-list');
-			list.classList.add('user-items-list'); 
+			list.classList.add('unordered-items-list'); 
 			yourItems.appendChild(list); 
 			
 			//TEST OBJECTS

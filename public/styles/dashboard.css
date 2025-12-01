@@ -29,6 +29,10 @@
   transition: width 0.3s ease;
 }
 
+.unordered-items-list {
+	text-align: left;	
+}
+
 /* Tablet and below */
 @media (max-width: 991px) {
   .responsive-hr { width: 50%; }
