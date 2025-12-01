@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 		hamburgerLinks = jQuery(".hamburger-links"), 
 		greetingTime = jQuery("#greeting-time"), 
 		greetingName = jQuery("#greeting-name"), 
-		userItemsList = jQuery("#user-items-list"), 
+		yourItems = jQuery("#your-items"), 
 		chkOutNotice = jQuery("#check-out-notice"), 
 		returnNotice = jQuery("#return-notice"); 
 	
@@ -40,18 +40,18 @@ jQuery(document).ready(function() {
 		//var userItems = API.getUserItems();
 		//Do stuff with user items
 		if(true) { //userItems.length != 0
+			yourItems.innerHTML = '';
+			
 			var list = document.createElement('ul'); 
-			list.setAttribute('id', '');
+			list.setAttribute('id', 'user-items-list');
 			list.classList.add('user-items-list'); 
-			userItemsList.appendChild(list); 
+			yourItems.appendChild(list); 
 			
-			
-			//userItems.forEach(item => {
-			
-				
-				
-			
-			//});
+			userItems.forEach(item => {
+				var li = document.createElement('li');
+				li.textContent = item.title;
+				list.appendChild(li); 				
+			});
 		}
 		 
 	}
@@ -62,6 +62,7 @@ jQuery(document).ready(function() {
 	}
 	
 	function getReturnNotices() {
+		//Check month. If December or May (Or July), get return notices. 
 		returnNotices = API.getReturnNotices();
 		//Do stuff with return notices.
 	}
@@ -80,9 +81,9 @@ jQuery(document).ready(function() {
 	
 	//TEST OBJECTS
 	var userItems = [];
-	userItems.push({});
-	userItems.push();
-	userItems.push();
+	userItems.push({'title': 'Chemistry: A Molecular Approach'});
+	userItems.push({'title': 'Elementary Differential Equations and Boundary Value Problems'});
+	userItems.push({'title': 'MATLAB: A Practical Introduction to Programming and Problem Solving'});
 	
 	
 	
