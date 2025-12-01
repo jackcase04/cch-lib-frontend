@@ -36,8 +36,9 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserItems() {
-		var userItems = API.getUserItems();
-		if(userItems.length != 0) {
+		var userItems = null;
+		userItems = API.getUserItems();
+		if(userItems != null && userItems.length != 0) {
 			yourItems.innerHTML = '';
 			
 			var list = document.createElement('ul'); 
