@@ -31,7 +31,7 @@
 
 .unordered-items-list {
 	text-align: left;
-	margin-left: 0.2em;	
+	/*TODO: Responsive styles to keep list under header better.*/
 }
 
 /* Tablet and below */
