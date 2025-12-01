@@ -47,6 +47,13 @@ jQuery(document).ready(function() {
 			list.classList.add('user-items-list'); 
 			yourItems.appendChild(list); 
 			
+			//TEST OBJECTS
+			var userItems = [];
+			userItems.push({'title': 'Chemistry: A Molecular Approach'});
+			userItems.push({'title': 'Elementary Differential Equations and Boundary Value Problems'});
+			userItems.push({'title': 'MATLAB: A Practical Introduction to Programming and Problem Solving'});
+	
+			
 			userItems.forEach(item => {
 				var li = document.createElement('li');
 				li.textContent = item.title;
@@ -79,11 +86,6 @@ jQuery(document).ready(function() {
 		
 	});	
 	
-	//TEST OBJECTS
-	var userItems = [];
-	userItems.push({'title': 'Chemistry: A Molecular Approach'});
-	userItems.push({'title': 'Elementary Differential Equations and Boundary Value Problems'});
-	userItems.push({'title': 'MATLAB: A Practical Introduction to Programming and Problem Solving'});
 	
 	
 	
