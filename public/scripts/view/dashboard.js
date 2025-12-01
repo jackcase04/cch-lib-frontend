@@ -31,8 +31,18 @@ jQuery(document).ready(function() {
 	}
 	
 	function getUserName() {
-		 var name = API.getUserName(); 
-		 greetingName.text(name); 
+		
+		API.getUserName().done(function(userName) {
+			
+			if(userName != null) {
+				greetingName.text(userName); 
+			}
+			
+		}).fail(function(jqXHR, textStatus, error) {
+			console.error('Failed to load user name: ', jqXHR, textStatus, error); 
+			greetingName.text('unidentified user'); 
+		});
+		
 	}
 	
 	function getUserItems() {
@@ -55,7 +65,7 @@ jQuery(document).ready(function() {
 			}
 			
 		}).fail(function(jqXHR, textStatus, error) {
-			console.error("Failed to load user items: ", jqXHR, textStatus, error);
+			console.error('Failed to load user items: ', jqXHR, textStatus, error);
 			yourItems.innerHTML = ''; 
 			yourItems.textContent = 'There was an error loading your items.'
 		}); 

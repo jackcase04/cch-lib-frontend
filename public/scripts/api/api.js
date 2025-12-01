@@ -77,7 +77,7 @@ class APIclient {
 			url: `${this.BASE_URL}/userItems`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
-			//return response;
+			//empty
 		}).fail(this._handleError);
 	}
 	
@@ -88,7 +88,7 @@ class APIclient {
 			url: `${this.BASE_URL}/userName`, 
 			xhrFields: { withCredentials: true }
 		}).done(function(response) {
-			return response;
+			//empty
 		}).fail(this._handleError); 
 	}
 	
