@@ -10,7 +10,7 @@ class APIclient {
             statusText: jqXHR.statusText,
             response: jqXHR.responseText || jqXHR.responseJSON, textStatus, error
 		});
-		throw new Error(`API request failed: ${jqXHR.status} ${textStatus}`);
+		return jQuery.Deferred().reject(jqXHR, textStatus, error).promise();
 	};
 	
 	addLibraryItem(itemInfo) {
@@ -76,8 +76,6 @@ class APIclient {
 			method: 'GET', 
 			url: `${this.BASE_URL}/userItems`, 
 			xhrFields: { withCredentials: true }
-		}).done(function(response) {
-			//empty
 		}).fail(this._handleError);
 	}
 	
@@ -87,8 +85,6 @@ class APIclient {
 			method: 'GET', 
 			url: `${this.BASE_URL}/user/name`, 
 			xhrFields: { withCredentials: true }
-		}).done(function(response) {
-			//empty
 		}).fail(this._handleError); 
 	}
 	

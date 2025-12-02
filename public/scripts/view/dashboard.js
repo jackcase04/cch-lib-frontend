@@ -41,7 +41,7 @@ jQuery(document).ready(function() {
 			
 		}).fail(function(jqXHR, textStatus, error) {
 			console.error('Failed to load user name: ', jqXHR, textStatus, error); 
-			greetingName.text('unidentified user'); 
+			greetingName.text('CCF user'); 
 		});
 		
 	}
