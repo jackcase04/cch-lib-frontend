@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
 		greetingTime = jQuery("#greeting-time"), 
 		greetingName = jQuery("#greeting-name"), 
 		yourItems = jQuery("#your-items")[0], 
-		chkOutNotice = jQuery("#check-out-notice")[0], 
+		chkOutNotices = jQuery("#check-out-notices")[0], 
 		returnNotice = jQuery("#return-notice")[0]; 
 	
 	
@@ -39,8 +39,8 @@ jQuery(document).ready(function() {
 				greetingName.text(userName); 
 			}
 			
-		}).fail(function(jqXHR, textStatus, error) {
-			console.error('Failed to load user name: ', jqXHR, textStatus, error); 
+		}).fail(function() {
+			console.error('Failed to load user name.'); 
 			greetingName.text('CCF user'); 
 		});
 		
@@ -65,8 +65,8 @@ jQuery(document).ready(function() {
 				});
 			}
 			
-		}).fail(function(jqXHR, textStatus, error) {
-			console.error('Failed to load user items: ', jqXHR, textStatus, error);
+		}).fail(function() {
+			console.error('Failed to load user items.');
 			yourItems.innerHTML = ''; 
 			yourItems.textContent = 'There was an error loading your items.'
 		}); 
@@ -74,8 +74,30 @@ jQuery(document).ready(function() {
 	}
 	
 	function getCheckOutNotices() {
-		var checkOutNotices = API.getCheckOutNotices();
-		//Do stuff with check out notices.
+		
+		API.getCheckOutNotices().done(function(notices) {
+			
+			if(notices != null && notices.length > 0) {
+				chkOutNotices.innerHTML = '';
+			
+				var list = document.createElement('ul'); 
+				list.setAttribute('id', 'chk-out-notices-list');
+				list.classList.add('unordered-items-list'); 
+				chkOutNotices.appendChild(list); 
+				
+				notices.forEach(item => {
+					var li = document.createElement('li');
+					li.textContent = item.title;
+					list.appendChild(li); 				
+				});
+			}			
+			
+		}).fail(function() {
+			console.error('Failed to load check out notices.')
+			chkOutNotices.innerHTML = ''; 
+			chkOutNotices.textContent = "There was an error loading your check out notices."; 
+		}); 
+
 	}
 	
 	function getReturnDate() {
