@@ -36,7 +36,7 @@ jQuery(document).ready(function() {
 			var name = userName.data;
 			console.log(name); //Debug
 			if(name != null) {
-				greetingName.text(userName); 
+				greetingName.text(name); 
 			}
 			
 		}).fail(function() {
