@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
 		greetingTime = jQuery("#greeting-time"), 
 		greetingName = jQuery("#greeting-name"), 
 		yourItems = jQuery("#your-items")[0], 
-		chkOutNotices = jQuery("#check-out-notices")[0], 
+		chkOutNotices = jQuery("#chk-out-notices")[0], 
 		returnNotice = jQuery("#return-notice")[0]; 
 	
 	
@@ -33,9 +33,9 @@ jQuery(document).ready(function() {
 	function getUserName() {
 		
 		API.getUserName().done(function(userName) {
-			
-			console.log(userName); //Debug
-			if(userName != null) {
+			var name = userName.data;
+			console.log(name); //Debug
+			if(name != null) {
 				greetingName.text(userName); 
 			}
 			
