@@ -76,8 +76,8 @@ jQuery(document).ready(function() {
 		
 		API.getCheckOutNotices().done(function(data) {
 			
-			books = data.books; 
-			equipment = data.equipment; 
+			var books = data.books; 
+			var equipment = data.equipment; 
 			
 			if(data != null && (books.length > 0 || equipment.length > 0)) {
 				chkOutNotices.innerHTML = '';
