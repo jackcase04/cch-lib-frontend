@@ -129,7 +129,7 @@ jQuery(document).ready(function() {
 	function getReturnDate() {
 		//returnNotices = API.getReturnDate();
 		var month = new Date().getMonth();
-		if(month == 5 || month == 8 || month == 12) {
+		if(month == 4 || month == 7 || month == 11) {
 			//For now, just a hardcode. But will pull date from database.
 			returnNotice.innerHTML = ''; 
 			returnNotice.textContent = "You items are due on 12/19/2025."
