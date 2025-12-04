@@ -7,6 +7,8 @@ jQuery(document).ready(function() {
 		hamburgerMenu = jQuery(".icon"),
 		hamburgerLinks = jQuery(".hamburger-links"),
 		
+		searchForm = jQuery("#search-form"),
+		searchErrorField = jQuery("#search-error-field")[0], 
 		searchCategoryWrapper = jQuery("#search-category-wrapper"), 
 		dropdownWrapper = jQuery(".dropdown-wrapper"), 
 		searchCategory = jQuery("#search-category"), 
@@ -96,6 +98,14 @@ jQuery(document).ready(function() {
 			}
 		});
 	});
+	
+	searchForm.on('submit', function(e) {
+		e.preventDefault();
+		
+		alert("Search event listener heard."); 
+		
+	});
+	
 	
 	//Clears data from book search fields. 
 	function clearBookFields() {
