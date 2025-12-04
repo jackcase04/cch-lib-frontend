@@ -79,7 +79,7 @@ jQuery(document).ready(function() {
 			var books = response.data.books; 
 			var equipment = response.data.equipment; 
 			
-			if(data != null && (books.length > 0 || equipment.length > 0)) {
+			if(response.data != null && (books.length > 0 || equipment.length > 0)) {
 				chkOutNotices.innerHTML = '';
 			
 				var list = document.createElement('ul'); 
