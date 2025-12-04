@@ -17,11 +17,11 @@ jQuery(document).ready(function() {
 		dropdownRadios = document.querySelectorAll('input[name="search_category"]'), 
 		
 		bookFieldsContainer = jQuery("#book-fields"), 
-		isbnInput = jQuery("#isbn"), 
-		titleInput = jQuery("#title"), 
-		authorInput = jQuery("#author"), 
+		isbnInput = jQuery("#isbn")[0], 
+		titleInput = jQuery("#title"[0]), 
+		authorInput = jQuery("#author")[0], 
 		equipFieldsContainer = jQuery("#equipment-fields"), 
-		equipNameInput = jQuery("#equip-name"), 
+		equipNameInput = jQuery("#equip-name")[0], 
 		
 		toggleFormSwitchContainer = jQuery("#toggle-form-switch-container"), 
 		toggleFormSwitch = jQuery("#toggle-form-switch")[0], 
@@ -78,20 +78,36 @@ jQuery(document).ready(function() {
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.show();
 				toggleFormSwitch.checked = false;
+				clearEquipmentFields();
 			} else if (e.target.value === '3') {
 				selectedOption.text("Equipment");
 				bookFieldsContainer.hide();
 				equipFieldsContainer.show();
 				toggleFormSwitchContainer.show();
 				toggleFormSwitch.checked = false;
+				clearBookFields();
 			} else {
 				selectedOption.text("All");
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
+				clearBookFields();
+				clearEquipmentFields();
 			}
 		});
 	});
 	
+	//Clears data from book search fields. 
+	function clearBookFields() {
+		isbnInput.value = '';
+		titleInput.value = ''; 
+		authorInput.value = ''; 		
+	}
+	
+	//Clears data from equipment search fields. 
+	function clearEquipmentFields() {
+		equipNameInput.value = '';
+	}
+
 	
 });
