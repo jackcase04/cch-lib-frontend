@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
 		
 		bookFieldsContainer = jQuery("#book-fields"), 
 		isbnInput = jQuery("#isbn")[0], 
-		titleInput = jQuery("#title"[0]), 
+		titleInput = jQuery("#title")[0], 
 		authorInput = jQuery("#author")[0], 
 		equipFieldsContainer = jQuery("#equipment-fields"), 
 		equipNameInput = jQuery("#equip-name")[0], 
