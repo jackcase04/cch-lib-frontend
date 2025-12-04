@@ -107,7 +107,7 @@ jQuery(document).ready(function() {
 		
 		searchFilters = {}
 		if(dropdownRadios) {
-			searchFilters.searchCategory = 
+			//searchFilters.searchCategory = 
 		}
 		
 		
