@@ -74,10 +74,10 @@ jQuery(document).ready(function() {
 	
 	function getCheckOutNotices() {
 		
-		API.getCheckOutNotices().done(function(data) {
+		API.getCheckOutNotices().done(function(response) {
 			
-			var books = data.books; 
-			var equipment = data.equipment; 
+			var books = response.data.books; 
+			var equipment = response.data.equipment; 
 			
 			if(data != null && (books.length > 0 || equipment.length > 0)) {
 				chkOutNotices.innerHTML = '';
