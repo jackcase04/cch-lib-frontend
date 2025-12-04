@@ -74,9 +74,12 @@ jQuery(document).ready(function() {
 	
 	function getCheckOutNotices() {
 		
-		API.getCheckOutNotices().done(function(notices) {
+		API.getCheckOutNotices().done(function(data) {
 			
-			if(notices != null && notices.length > 0) {
+			books = data.books; 
+			equipment = data.equipment; 
+			
+			if(data != null && (books.length > 0 || equipment.length > 0)) {
 				chkOutNotices.innerHTML = '';
 			
 				var list = document.createElement('ul'); 
@@ -84,11 +87,22 @@ jQuery(document).ready(function() {
 				list.classList.add('unordered-items-list'); 
 				chkOutNotices.appendChild(list); 
 				
-				notices.forEach(item => {
-					var li = document.createElement('li');
-					li.textContent = item.title;
-					list.appendChild(li); 				
-				});
+				if(books.length > 0) {
+					books.forEach(book => {
+						var li = document.createElement('li');
+						li.textContent = book.title;
+						list.appendChild(li); 				
+					});
+				}
+				
+				if(equipment.length > 0) {
+					equipment.forEach(equip => {
+						var li = document.createElement('li');
+						li.textContent = equip.name;
+						list.appendChild(li); 				
+					});	
+				}
+				 
 			}			
 			
 		}).fail(function() {
