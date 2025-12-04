@@ -47,9 +47,12 @@ jQuery(document).ready(function() {
 	
 	function getUserItems() {
 		
-		API.getUserItems().done(function(userItems) {
+		API.getUserItems().done(function(response) {
 			
-			if(userItems != null && userItems.length > 0) {
+			var books = response.data.books;
+			var equipment = response.data.equipment;
+			
+			if(response.data != null && (books.length > 0 || equipment.length > 0)) {
 				yourItems.innerHTML = '';
 			
 				var list = document.createElement('ul'); 
@@ -57,11 +60,21 @@ jQuery(document).ready(function() {
 				list.classList.add('unordered-items-list'); 
 				yourItems.appendChild(list); 
 				
-				userItems.forEach(item => {
-					var li = document.createElement('li');
-					li.textContent = item.title;
-					list.appendChild(li); 				
-				});
+				if(books.length > 0) {
+					books.forEach(book => {
+						var li = document.createElement('li');
+						li.textContent = book.title;
+						list.appendChild(li); 				
+					});
+				}
+				
+				if(equipment.length > 0) {
+					equipment.forEach(equip => {
+						var li = document.createElement('li');
+						li.textContent = equip.name;
+						list.appendChild(li); 				
+					});	
+				}
 			}
 			
 		}).fail(function() {
