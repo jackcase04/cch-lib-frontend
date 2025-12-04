@@ -169,18 +169,6 @@ class APIclient {
 		}).fail(this._handleError); 
 	}
 	
-	
-	searchLibrary(searchFilters) {
-		return jQuery.ajax({
-			contentType: 'application/json',
-			data: JSON.stringify(searchFilters), 
-			dataType: 'json', 
-			method: 'POST', 
-			url: `${this.BASE_URL}/search/library-items`, //no const yet
-			xhrFields: { withCredentials: true }
-		}).fail(this._handleError); 
-	}
-	
 	signUp(userInfo) {
 		return jQuery.ajax({
 			contentType: 'application/json',
