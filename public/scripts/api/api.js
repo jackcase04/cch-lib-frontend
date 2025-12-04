@@ -3,7 +3,8 @@ class APIclient {
 	BASE_URL = "https://cch-lib-backend-production.up.railway.app";
 	AUTH_CONTROL = 'auth';
 	BOOK_CONTROL = 'books'; 
-	EQUIP_CONTROL = 'equip'; 
+	EQUIP_CONTROL = 'equip';
+	USER_CONTROL = 'user';  
 	
 	
 	_handleError = (jqXHR, textStatus, error) => {
@@ -66,7 +67,7 @@ class APIclient {
 		return jQuery.ajax({ 
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/checkout-notices`, //No const yet.
+			url: `${this.BASE_URL}/${this.USER_CONTROL}/checkout-notices`, //No const yet.
 			xhrFields: { withCredentials: true }
 		}).fail(this._handleError); 
 	}
@@ -85,7 +86,7 @@ class APIclient {
 		return jQuery.ajax({
 			dataType: 'json', 
 			method: 'GET', 
-			url: `${this.BASE_URL}/user-items`, 
+			url: `${this.BASE_URL}/${this.USER_CONTROL}/user-items`, 
 			xhrFields: { withCredentials: true }
 		}).fail(this._handleError);
 	}
