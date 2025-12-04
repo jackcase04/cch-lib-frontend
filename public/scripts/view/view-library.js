@@ -76,7 +76,7 @@ jQuery(document).ready(function() {
 		button.addEventListener('click', (e) => {
 			if(e.target.value === '2') {
 				selectedOption.text("Books");
-				searchCategory.data('value') = 2;
+				searchCategory[0].setAttribute("data-value", 2)
 				bookFieldsContainer.show();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.show();
@@ -84,7 +84,7 @@ jQuery(document).ready(function() {
 				clearEquipmentFields();
 			} else if (e.target.value === '3') {
 				selectedOption.text("Equipment");
-				searchCategory.data('value') = 3;
+				searchCategory[0].setAttribute("data-value", 3)
 				bookFieldsContainer.hide();
 				equipFieldsContainer.show();
 				toggleFormSwitchContainer.show();
@@ -92,7 +92,7 @@ jQuery(document).ready(function() {
 				clearBookFields();
 			} else {
 				selectedOption.text("All");
-				searchCategory.text('value') = 1; 
+				searchCategory[0].setAttribute("data-value", 3) 
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
