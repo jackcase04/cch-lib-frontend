@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 		searchErrorField = jQuery("#search-error-field")[0], 
 		searchCategoryWrapper = jQuery("#search-category-wrapper"), 
 		dropdownWrapper = jQuery(".dropdown-wrapper"), 
-		searchCategory = jQuery("#search-category"), 
+		selectedSearchCategory = jQuery("#selected-category"), 
 		dropdownSelection = jQuery(".dropdown-selection"), 
 		selectedOption = jQuery(".selected-option"), 
 		searchCategoryOptions = jQuery("#search-category-options"), 
@@ -58,15 +58,15 @@ jQuery(document).ready(function() {
 		if(e.target.checked) {
 			bookFieldsContainer.hide();
 			equipFieldsContainer.hide();
-			searchCategory[0].setAttribute("data-value", 1) 		
+			//searchCategory[0].setAttribute("data-value", 1) 		
 		} else {
 			
 			if(category === '2') {
 				bookFieldsContainer.show();
-				searchCategory[0].setAttribute("data-value", 2)
+				//searchCategory[0].setAttribute("data-value", 2)
 			} else {
 				equipFieldsContainer.show();
-				searchCategory[0].setAttribute("data-value", 3)
+				//searchCategory[0].setAttribute("data-value", 3)
 			}
 			
 		}
@@ -79,7 +79,7 @@ jQuery(document).ready(function() {
 		button.addEventListener('click', (e) => {
 			if(e.target.value === '2') {
 				selectedOption.text("Books");
-				searchCategory[0].setAttribute("data-value", 2)
+				selectedSearchCategory[0].setAttribute("data-value", 2)
 				bookFieldsContainer.show();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.show();
@@ -87,7 +87,7 @@ jQuery(document).ready(function() {
 				clearEquipmentFields();
 			} else if (e.target.value === '3') {
 				selectedOption.text("Equipment");
-				searchCategory[0].setAttribute("data-value", 3)
+				selectedSearchCategory[0].setAttribute("data-value", 3)
 				bookFieldsContainer.hide();
 				equipFieldsContainer.show();
 				toggleFormSwitchContainer.show();
@@ -95,7 +95,7 @@ jQuery(document).ready(function() {
 				clearBookFields();
 			} else {
 				selectedOption.text("All");
-				searchCategory[0].setAttribute("data-value", 1) 
+				selectedSearchCategory[0].setAttribute("data-value", 1) 
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
