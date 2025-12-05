@@ -57,13 +57,16 @@ jQuery(document).ready(function() {
 		
 		if(e.target.checked) {
 			bookFieldsContainer.hide();
-			equipFieldsContainer.hide();		
+			equipFieldsContainer.hide();
+			searchCategory[0].setAttribute("data-value", 1) 		
 		} else {
 			
 			if(category === '2') {
 				bookFieldsContainer.show();
+				searchCategory[0].setAttribute("data-value", 2)
 			} else {
 				equipFieldsContainer.show();
+				searchCategory[0].setAttribute("data-value", 3)
 			}
 			
 		}
@@ -92,7 +95,7 @@ jQuery(document).ready(function() {
 				clearBookFields();
 			} else {
 				selectedOption.text("All");
-				searchCategory[0].setAttribute("data-value", 3) 
+				searchCategory[0].setAttribute("data-value", 1) 
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
