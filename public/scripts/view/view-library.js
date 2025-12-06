@@ -108,7 +108,7 @@ jQuery(document).ready(function() {
 	searchForm.on('submit', function(e) {
 		e.preventDefault();
 		
-		searchFilters = {}
+		var searchFilters = {}
 		if(searchCategory.dataset.selectedSearchOption == '2') {
 			console.log("Search books.");
 		} else if (searchCategory.dataset.selectedSearchOption == '3') {
