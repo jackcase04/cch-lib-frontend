@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 		searchErrorField = jQuery("#search-error-field")[0], 
 		searchCategoryWrapper = jQuery("#search-category-wrapper"), 
 		dropdownWrapper = jQuery(".dropdown-wrapper"), 
-		searchCategory = jQuery("#search-category"), 
+		searchCategory = jQuery("#search-category")[0], 
 		dropdownSelection = jQuery(".dropdown-selection"), 
 		selectedOption = jQuery(".selected-option"), 
 		searchCategoryOptions = jQuery("#search-category-options"), 
@@ -78,27 +78,24 @@ jQuery(document).ready(function() {
 	dropdownRadios.forEach((button) => {
 		button.addEventListener('click', (e) => {
 			if(e.target.value === '2') {
-				console.log("Books (2) checked."); 
 				selectedOption.text("Books");
-				searchCategory[0].setAttribute("data-selected-search-option", 2); 
+				searchCategory.dataset.selectedSearchOption = 2; 
 				bookFieldsContainer.show();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.show();
 				toggleFormSwitch.checked = false;
 				clearEquipmentFields();
 			} else if (e.target.value === '3') {
-				console.log("Equipment (3) checked."); 
 				selectedOption.text("Equipment");
-				searchCategory[0].setAttribute("data-selected-search-option", 3); 
+				searchCategory.dataset.selectedSearchOption = 3;
 				bookFieldsContainer.hide();
 				equipFieldsContainer.show();
 				toggleFormSwitchContainer.show();
 				toggleFormSwitch.checked = false;
 				clearBookFields();
 			} else {
-				console.log("All (1) checked."); 
 				selectedOption.text("All");
-				searchCategory[0].setAttribute("data-selected-search-option", 1);  
+				searchCategory.dataset.selectedSearchOption = 3;  
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
@@ -112,10 +109,13 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		
 		searchFilters = {}
-		//if(dropdownRadios) {
-			//searchFilters.searchCategory = 
-		//}
-		
+		if(searchCategory.dataset.selectedSearchOption == '2') {
+			console.log("Search books.");
+		} else if (searchCategory.dataset.selectedSearchOption == '3') {
+			console.log("Search equipment.");
+		} else {
+			console.log("Search all.")
+		}
 		
 		alert("Search event listener heard."); 
 		
