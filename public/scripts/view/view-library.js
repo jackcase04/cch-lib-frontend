@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 		searchErrorField = jQuery("#search-error-field")[0], 
 		searchCategoryWrapper = jQuery("#search-category-wrapper"), 
 		dropdownWrapper = jQuery(".dropdown-wrapper"), 
-		selectedSearchCategory = jQuery("#selected-category"), 
+		searchCategory = jQuery("#search-category"), 
 		dropdownSelection = jQuery(".dropdown-selection"), 
 		selectedOption = jQuery(".selected-option"), 
 		searchCategoryOptions = jQuery("#search-category-options"), 
@@ -78,24 +78,27 @@ jQuery(document).ready(function() {
 	dropdownRadios.forEach((button) => {
 		button.addEventListener('click', (e) => {
 			if(e.target.value === '2') {
+				console.log("Books (2) checked."); 
 				selectedOption.text("Books");
-				selectedSearchCategory[0].setAttribute("data-value", 2)
+				searchCategory[0].setAttribute("data-selected-search-option", 2); 
 				bookFieldsContainer.show();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.show();
 				toggleFormSwitch.checked = false;
 				clearEquipmentFields();
 			} else if (e.target.value === '3') {
+				console.log("Equipment (3) checked."); 
 				selectedOption.text("Equipment");
-				selectedSearchCategory[0].setAttribute("data-value", 3)
+				searchCategory[0].setAttribute("data-selected-search-option", 3); 
 				bookFieldsContainer.hide();
 				equipFieldsContainer.show();
 				toggleFormSwitchContainer.show();
 				toggleFormSwitch.checked = false;
 				clearBookFields();
 			} else {
+				console.log("All (1) checked."); 
 				selectedOption.text("All");
-				selectedSearchCategory[0].setAttribute("data-value", 1) 
+				searchCategory[0].setAttribute("data-selected-search-option", 1);  
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
@@ -109,9 +112,9 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		
 		searchFilters = {}
-		if(dropdownRadios) {
+		//if(dropdownRadios) {
 			//searchFilters.searchCategory = 
-		}
+		//}
 		
 		
 		alert("Search event listener heard."); 
