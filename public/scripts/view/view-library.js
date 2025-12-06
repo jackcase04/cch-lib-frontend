@@ -95,7 +95,7 @@ jQuery(document).ready(function() {
 				clearBookFields();
 			} else {
 				selectedOption.text("All");
-				searchCategory.dataset.selectedSearchOption = 3;  
+				searchCategory.dataset.selectedSearchOption = 1;  
 				bookFieldsContainer.hide();
 				equipFieldsContainer.hide();
 				toggleFormSwitchContainer.hide();
@@ -113,7 +113,7 @@ jQuery(document).ready(function() {
 			console.log("Search books.");
 		} else if (searchCategory.dataset.selectedSearchOption == '3') {
 			console.log("Search equipment.");
-		} else {
+		} else if (searchCategory.dataset.selectedSearchOption == '1') {
 			console.log("Search all.")
 		}
 		
