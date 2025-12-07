@@ -29,7 +29,8 @@ jQuery(document).ready(function() {
 		toggleFormSwitch = jQuery("#toggle-form-switch")[0], 
 		
 		resultCount = jQuery("#result-count"), 
-		resultViewToggle = jQuery("#result-view-toggle");
+		resultViewToggle = jQuery("#result-view-toggle"), 
+		cardViewResults = jQuery("#card-view-results");
 			
 	
 	//Click event for hamburger menu
@@ -109,15 +110,26 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		
 		var searchFilters = {}
+		//Search books
 		if(searchCategory.dataset.selectedSearchOption == '2') {
-			console.log("Search books.");
+			console.log("Search books.")
+		//Search Equipment
 		} else if (searchCategory.dataset.selectedSearchOption == '3') {
-			console.log("Search equipment.");
+			console.log("Search equipment."); 
+		//Search all
 		} else if (searchCategory.dataset.selectedSearchOption == '1') {
-			console.log("Search all.")
+			searchFilters.selectedSearchOption = searchCategory.dataset.selectedSearchOption; 
+			/*API.searchLibrary(searchFilters).done(function(response) {
+				populateSearchResults(response.data); //Eventually designate the view.
+			}).fail(function() {
+				
+			}); */
+			
+			populateSearchResults(testResultsData); 
+			
 		}
 		
-		alert("Search event listener heard."); 
+		
 		
 	});
 	
@@ -133,6 +145,105 @@ jQuery(document).ready(function() {
 	function clearEquipmentFields() {
 		equipNameInput.value = '';
 	}
+	
+	//Populates the card view with the search results
+	function populateSearchResults(results) {
+	
+	    // Clear previous results
+	    cardViewResults.empty(); 
+	
+	    let currentRow;
+	    let itemCount = 0;
+	
+	    results.books.forEach((book, index) => {
+	        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.)
+	        if (itemCount % 4 === 0) {
+	            currentRow = jQuery('<div class="row">');
+	            cardViewResults.append(currentRow);
+	        }
+	
+	        // Create the column wrapper using Bootstrap grid classes
+	        const col = jQuery('<div class="col-xs-12 col-sm-6 col-xxl-3">');
+	        
+	        // Create the inner card container
+	        const card = jQuery('<div class="info-card">');
+	
+	        // Populate the card content using jQuery methods
+	        card.append(jQuery('<h5>').html(`<b>${book.title}</b>`));
+	        card.append(jQuery('<p>').text(book.author));
+	        card.append(jQuery('<p>').text(book.description));
+	
+	        // Assemble the structure:
+	        col.append(card);
+	        currentRow.append(col);	
+	        
+	        itemCount++; 
+		
+		});
+		
+		results.equipment.forEach((equipment, index) => {
+	        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.) 
+	        if (itemCount % 4 === 0) {
+	            currentRow = jQuery('<div class="row">');
+	            cardViewResults.append(currentRow);
+	        }
+	
+	        // Create the column wrapper using Bootstrap grid classes
+	        const col = jQuery('<div class="col-xs-12 col-sm-6 col-xxl-3">');
+	        
+	        // Create the inner card container
+	        const card = jQuery('<div class="info-card">');
+	
+	        // Populate the card content using jQuery methods
+	        card.append(jQuery('<h5>').html(`<b>${equipment.name}</b>`));
+	
+	        // Assemble the structure:
+	        col.append(card);
+	        currentRow.append(col);	
+	        
+	        itemCount++; 
+		
+		});
+	
+	}
+	
+	
+	
+	
+	const testResultsData = {
+    books: [
+        { 
+            title: "The Martian", 
+            author: "Andy Weir", 
+            description: "A botanist gets stranded on Mars and has to survive using science." 
+        },
+        { 
+            title: "Project Hail Mary", 
+            author: "Andy Weir", 
+            description: "A man wakes up from a coma to find he is humanity's only hope." 
+        },
+        { 
+            title: "Dune", 
+            author: "Frank Herbert", 
+            description: "A complex story of politics, religion, and giant sand worms on a desert planet." 
+        },
+        { 
+            title: "Neuromancer", 
+            author: "William Gibson", 
+            description: "The classic cyberpunk novel that defined the genre." 
+        },
+        { 
+            title: "Ender's Game", 
+            author: "Orson Scott Card", 
+            description: "A story about gifted children trained to fight an alien species." 
+        }
+    ],
+    equipment: [
+        { name: "Lab Safety Goggles" },
+        { name: "Protective Gloves (Chemical Resistant)" },
+        { name: "Microscope, Compound Light" }
+    ]
+};
 
 	
 });
