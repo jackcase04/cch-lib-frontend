@@ -164,7 +164,7 @@ class APIclient {
 			data: JSON.stringify(searchFilters), 
 			dataType: 'json', 
 			method: 'POST', 
-			url: `${this.BASE_URL}/library-items/search`, //no const yet
+			url: `${this.BASE_URL}/library-items/search`, //Update this to libary/search
 			xhrFields: { withCredentials: true }
 		}).fail(this._handleError); 
 	}
@@ -175,7 +175,7 @@ class APIclient {
 			data: JSON.stringify(userInfo), 
 			dataType: 'json', 
 			method: 'POST', 
-			url: `${this.BASE_URL}/${this.AUTH_CONTROL}/sign-up`, 
+			url: `${this.BASE_URL}/${this.AUTH_CONTROL}/signup`, 
 			xhrFields: { withCredentials: true }
 		}).fail(this._handleError); 
 	}
