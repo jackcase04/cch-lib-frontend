@@ -32,7 +32,7 @@ jQuery(document).ready(function() {
 				}).fail(function() {
 					//Generic error message. 
 					signUpErrorField.innerHTML = ''; 
-					signUpErrorField.textContent('There was an error signing up. Please try again later.');
+					signUpErrorField.textContent = 'There was an error signing up. Please try again later.';
 					signUpErrorField.hidden = false;
 					
 				}); 
