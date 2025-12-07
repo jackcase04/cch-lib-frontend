@@ -68,23 +68,39 @@ jQuery(document).ready(function() {
 		//Validate credentials to ensure they follow appropriate conventions. 
 		function validateCredentials(credentials) {
 			
-			errorMsgs = [];
+			var errorMsgs = [];
 			
-			if(!/^[A-Za-z]+$/.test(credentials.firstName)) {
-				errorMsgs.push('First name must consist only of letters.'); 
+			if(isEmpty(credentials.firstName)) {
+				errorMsgs.push('You must enter a first name.'); 
+			} else {
+				if(!/^[A-Za-z]+$/.test(credentials.firstName)) {
+					errorMsgs.push('First name must consist only of letters.'); 
+				}	
 			}
 			
-			if(!/^[A-Za-z]+$/.test(credentials.lastName)) {
-				errorMsgs.push('Last name must consist only of letters.'); 
+			if(isEmpty(credentials.lastName)){
+				errorMsgs.push('You must enter a last name.'); 
+			} else {
+				if(!/^[A-Za-z]+$/.test(credentials.lastName)) {
+					errorMsgs.push('Last name must consist only of letters.'); 
+				}
 			}
 			
-			var emailDomain = credentials.email.split('@', 2)[1].split('.', 1)[0]; 
-			if(emailDomain !== 'mst') {
-				errorMsgs.push('Email must be an mst email.'); 
+			if(isEmpty(credentials.email)) {
+				errorMsgs.push('You must enter an email.'); 
+			} else {
+				var emailDomain = credentials.email.split('@', 2)[1].split('.', 1)[0]; 
+				if(emailDomain !== 'mst') {
+					errorMsgs.push('Email must be an mst email.'); 
+				}
 			}
 			
-			if(credentials.password !== credentials.passwordConfirm) {
-				errorMsgs.push('Password confirmation does not match password.');
+			if(isEmpty(credentials.password)) {
+				errorMsgs.push('You must enter a password'); 
+			} else {
+				if(credentials.password !== credentials.passwordConfirm) {
+					errorMsgs.push('Password confirmation does not match password.');
+				}
 			}
 			
 			var validationResult = {}; 
@@ -98,6 +114,14 @@ jQuery(document).ready(function() {
 			return validationResult; 
 			
 		}
-	
+		
+		//Returns whether a field was left empty
+		function isEmpty(string) {
+			if(string == null || string == '') {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	
 });
