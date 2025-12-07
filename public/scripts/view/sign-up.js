@@ -21,7 +21,7 @@ jQuery(document).ready(function() {
 			credentials.email = email.value.trim();
 			credentials.password = password.value.trim();
 			
-			passwordConfirm = confirmPassword.value.trim();
+			var passwordConfirm = confirmPassword.value.trim();
 			
 			var validationResult = validateCredentials(credentials); 
 			if(validationResult.isValid) {
