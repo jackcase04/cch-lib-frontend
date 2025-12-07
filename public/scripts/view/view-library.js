@@ -149,6 +149,11 @@ jQuery(document).ready(function() {
 	//Populates the card view with the search results
 	function populateSearchResults(results) {
 	
+		//Update result count
+		var count = results.books.length + results.equipment.length; 
+		resultCount.text(count);
+		
+	
 	    // Clear previous results
 	    cardViewResults.empty(); 
 	
