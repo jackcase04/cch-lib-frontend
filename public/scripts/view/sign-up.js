@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 			
 			var passwordConfirm = confirmPassword.value.trim();
 			
-			var validationResult = validateCredentials(credentials); 
+			var validationResult = validateCredentials(credentials, passwordConfirm); 
 			if(validationResult.isValid) {
 				signUpErrorWrapper.hidden = true;
 				
@@ -67,7 +67,7 @@ jQuery(document).ready(function() {
 		});
 		
 		//Validate credentials to ensure they follow appropriate conventions. 
-		function validateCredentials(credentials) {
+		function validateCredentials(credentials, passwordConfirm) {
 			
 			var errorMsgs = [];
 			
