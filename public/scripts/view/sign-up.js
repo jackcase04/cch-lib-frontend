@@ -3,13 +3,13 @@ import {API} from '/scripts/api/api.js';
 jQuery(document).ready(function() {
 	
 	var signUpForm = jQuery('#sign-up-form'), 
-		signUpError = jQuery('#sign-up-error-field')[0],
+		signUpErrorWrapper = jQuery('#sign-up-error-wrapper')[0], 
+		signUpErrorField = jQuery('#sign-up-error-field')[0],
 		fname = jQuery('#fname')[0], 
 		lname = jQuery('#lname')[0], 
 		email = jQuery('#email')[0],  
 		password = jQuery('#pwd')[0], 
 		confirmPassword = jQuery('#confirm-pwd')[0]; 
-		
 		
 		
 		signUpForm.on('submit', function(e) {
@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
 			
 			var validationResult = validateCredentials(credentials); 
 			if(validationResult.isValid) {
-				signUpError.hidden = true;
+				signUpErrorWrapper.hidden = true;
 				
 				alert("Credentials valid."); 
 				
@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
 			} else {
 				
 				var msgs = validationResult.errorMsgs;
-				signUpError.innerHTML = '';  
+				signUpErrorField.innerHTML = '';  
 				if(msgs.length == 1) {
 					signUpError.textContent = msgs[0]; 
 				} else {
@@ -51,7 +51,7 @@ jQuery(document).ready(function() {
 					var list = document.createElement('ul'); 
 					list.setAttribute('id', 'error-msgs');
 					list.classList.add('unordered-items-list'); 
-					signUpError.appendChild(list); 
+					signUpErrorField.appendChild(list); 
 					
 					msgs.forEach(msg => {
 						var li = document.createElement('li'); 
@@ -59,8 +59,9 @@ jQuery(document).ready(function() {
 						list.appendChild(li); 
 					}); 
 					
+					list.appendChild(document.createElement('br'));
 				}
-				signUpError.hidden = false;
+				signUpErrorWrapper.hidden = false;
 			}
 						
 		});
