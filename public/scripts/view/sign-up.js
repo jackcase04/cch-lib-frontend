@@ -42,7 +42,7 @@ jQuery(document).ready(function() {
 				
 			} else {
 				
-				var msgs = validationReult.errorMsgs;
+				var msgs = validationResult.errorMsgs;
 				signUpForm.innerHTML = '';  
 				if(msgs.length == 1) {
 					signUpForm.textContent(msgs[0]); 
