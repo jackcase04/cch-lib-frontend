@@ -26,19 +26,16 @@ jQuery(document).ready(function() {
 			if(validationResult.isValid) {
 				signUpErrorWrapper.hidden = true;
 				
-				alert("Credentials valid."); 
-				
-				/*
 				API.signUp(credentials).done(function() {
-					signUpError.hidden = true; 
+					signUpErrorField.hidden = true; 
 					window.location.replace("/login.html");
 				}).fail(function() {
 					//Generic error message. 
-					signUpError.innerHTML = ''; 
-					signUpError.textContent('There was an error signing up. Please try again later.');
-					signUpError.hidden = false;
+					signUpErrorField.innerHTML = ''; 
+					signUpErrorField.textContent('There was an error signing up. Please try again later.');
+					signUpErrorField.hidden = false;
 					
-				}); */
+				}); 
 				
 			} else {
 				
