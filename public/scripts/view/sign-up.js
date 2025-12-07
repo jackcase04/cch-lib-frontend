@@ -46,12 +46,13 @@ jQuery(document).ready(function() {
 				signUpErrorField.innerHTML = '';  
 				if(msgs.length == 1) {
 					signUpErrorField.textContent = msgs[0]; 
+					signUpErrorField.appendChild(document.createElement('br'));
 				} else {
 					
 					var list = document.createElement('ul'); 
 					list.setAttribute('id', 'error-msgs');
 					list.classList.add('unordered-items-list'); 
-					list.style.listStyleType = 'none'; 
+					list.style.listStyleType = 'none';
 					signUpErrorField.appendChild(list); 
 					
 					msgs.forEach(msg => {
@@ -60,8 +61,8 @@ jQuery(document).ready(function() {
 						list.appendChild(li); 
 					}); 
 
+					list.appendChild(document.createElement('br'));
 				}
-				list.appendChild(document.createElement('br'));
 				signUpErrorWrapper.hidden = false;
 			}
 						
