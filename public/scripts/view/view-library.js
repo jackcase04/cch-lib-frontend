@@ -211,44 +211,6 @@ jQuery(document).ready(function() {
 		});
 	
 	}
-	
-	
-	
-	
-	const testResultsData = {
-    books: [
-        { 
-            title: "The Martian", 
-            author: "Andy Weir", 
-            description: "A botanist gets stranded on Mars and has to survive using science." 
-        },
-        { 
-            title: "Project Hail Mary", 
-            author: "Andy Weir", 
-            description: "A man wakes up from a coma to find he is humanity's only hope." 
-        },
-        { 
-            title: "Dune", 
-            author: "Frank Herbert", 
-            description: "A complex story of politics, religion, and giant sand worms on a desert planet." 
-        },
-        { 
-            title: "Neuromancer", 
-            author: "William Gibson", 
-            description: "The classic cyberpunk novel that defined the genre." 
-        },
-        { 
-            title: "Ender's Game", 
-            author: "Orson Scott Card", 
-            description: "A story about gifted children trained to fight an alien species." 
-        }
-    ],
-    equipment: [
-        { name: "Lab Safety Goggles" },
-        { name: "Protective Gloves (Chemical Resistant)" },
-        { name: "Microscope, Compound Light" }
-    ]
-};
 
 	
 });
