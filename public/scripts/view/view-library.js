@@ -28,6 +28,7 @@ jQuery(document).ready(function() {
 		toggleFormSwitchContainer = jQuery("#toggle-form-switch-container"), 
 		toggleFormSwitch = jQuery("#toggle-form-switch")[0], 
 		
+		resultsMetadata = jQuery("#results-metadata"),
 		resultCount = jQuery("#result-count"), 
 		resultViewToggle = jQuery("#result-view-toggle"), 
 		cardViewResults = jQuery("#card-view-results");
@@ -150,6 +151,7 @@ jQuery(document).ready(function() {
 		//Update result count
 		var count = results.books.length + results.equipment.length; 
 		resultCount.text(count);
+		resultsMetadata.show();
 		
 	
 	    // Clear previous results
@@ -171,12 +173,10 @@ jQuery(document).ready(function() {
 	        // Create the inner card container
 	        const card = jQuery('<div class="info-card">');
 	
-	        // Populate the card content using jQuery methods
 	        card.append(jQuery('<h5>').html(`<b>${book.title}</b>`));
 	        card.append(jQuery('<p>').text(book.author));
 	        card.append(jQuery('<p>').text(book.description));
 	
-	        // Assemble the structure:
 	        col.append(card);
 	        currentRow.append(col);	
 	        
@@ -197,10 +197,8 @@ jQuery(document).ready(function() {
 	        // Create the inner card container
 	        const card = jQuery('<div class="info-card">');
 	
-	        // Populate the card content using jQuery methods
 	        card.append(jQuery('<h5>').html(`<b>${equipment.name}</b>`));
 	
-	        // Assemble the structure:
 	        col.append(card);
 	        currentRow.append(col);	
 	        
