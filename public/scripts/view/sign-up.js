@@ -58,9 +58,9 @@ jQuery(document).ready(function() {
 						li.textContent = msg; 
 						list.appendChild(li); 
 					}); 
-					
-					list.appendChild(document.createElement('br'));
+
 				}
+				list.appendChild(document.createElement('br'));
 				signUpErrorWrapper.hidden = false;
 			}
 						
@@ -97,7 +97,7 @@ jQuery(document).ready(function() {
 			}
 			
 			if(isEmpty(credentials.password)) {
-				errorMsgs.push('You must enter a password'); 
+				errorMsgs.push('You must enter a password.'); 
 			} else {
 				if(credentials.password !== credentials.passwordConfirm) {
 					errorMsgs.push('Password confirmation does not match password.');
