@@ -20,7 +20,8 @@ jQuery(document).ready(function() {
 			credentials.lastName = lname.value.trim();
 			credentials.email = email.value.trim();
 			credentials.password = password.value.trim();
-			credentials.passwordConfirm = confirmPassword.value.trim();
+			
+			passwordConfirm = confirmPassword.value.trim();
 			
 			var validationResult = validateCredentials(credentials); 
 			if(validationResult.isValid) {
@@ -98,7 +99,7 @@ jQuery(document).ready(function() {
 			if(isEmpty(credentials.password)) {
 				errorMsgs.push('You must enter a password.'); 
 			} else {
-				if(credentials.password !== credentials.passwordConfirm) {
+				if(credentials.password !== passwordConfirm) {
 					errorMsgs.push('Password confirmation does not match password.');
 				}
 			}
