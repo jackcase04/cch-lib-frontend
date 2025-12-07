@@ -119,13 +119,11 @@ jQuery(document).ready(function() {
 		//Search all
 		} else if (searchCategory.dataset.selectedSearchOption == '1') {
 			searchFilters.selectedSearchOption = searchCategory.dataset.selectedSearchOption; 
-			/*API.searchLibrary(searchFilters).done(function(response) {
-				populateSearchResults(response.data); //Eventually designate the view.
+			API.searchLibrary(searchFilters).done(function(response) {
+				populateSearchResults(response.data);
 			}).fail(function() {
 				
-			}); */
-			
-			populateSearchResults(testResultsData); 
+			});
 			
 		}
 		
