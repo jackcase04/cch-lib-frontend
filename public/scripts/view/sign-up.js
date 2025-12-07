@@ -45,7 +45,7 @@ jQuery(document).ready(function() {
 				var msgs = validationResult.errorMsgs;
 				signUpForm.innerHTML = '';  
 				if(msgs.length == 1) {
-					signUpForm.textContent(msgs[0]); 
+					signUpForm.textContent = msgs[0]; 
 				} else {
 					
 					var list = document.createElement('ul'); 
