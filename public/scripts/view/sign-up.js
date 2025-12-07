@@ -16,8 +16,8 @@ jQuery(document).ready(function() {
 			e.preventDefault();
 			
 			var credentials = {}; 
-			credentials.firstName = fname.value.trim();
-			credentials.lastName = lname.value.trim();
+			credentials.fName = fname.value.trim();
+			credentials.lName = lname.value.trim();
 			credentials.email = email.value.trim();
 			credentials.password = password.value.trim();
 			
@@ -71,18 +71,18 @@ jQuery(document).ready(function() {
 			
 			var errorMsgs = [];
 			
-			if(isEmpty(credentials.firstName)) {
+			if(isEmpty(credentials.fName)) {
 				errorMsgs.push('You must enter a first name.'); 
 			} else {
-				if(!/^[A-Za-z]+$/.test(credentials.firstName)) {
+				if(!/^[A-Za-z]+$/.test(credentials.fName)) {
 					errorMsgs.push('First name must consist only of letters.'); 
 				}	
 			}
 			
-			if(isEmpty(credentials.lastName)){
+			if(isEmpty(credentials.lName)){
 				errorMsgs.push('You must enter a last name.'); 
 			} else {
-				if(!/^[A-Za-z]+$/.test(credentials.lastName)) {
+				if(!/^[A-Za-z]+$/.test(credentials.lName)) {
 					errorMsgs.push('Last name must consist only of letters.'); 
 				}
 			}
