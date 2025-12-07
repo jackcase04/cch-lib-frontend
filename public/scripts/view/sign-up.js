@@ -51,6 +51,7 @@ jQuery(document).ready(function() {
 					var list = document.createElement('ul'); 
 					list.setAttribute('id', 'error-msgs');
 					list.classList.add('unordered-items-list'); 
+					list.style.listStyleType = 'none'; 
 					signUpErrorField.appendChild(list); 
 					
 					msgs.forEach(msg => {
