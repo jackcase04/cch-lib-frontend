@@ -43,10 +43,9 @@ jQuery(document).ready(function() {
 			} else {
 				
 				var msgs = validationResult.errorMsgs;
-				console.log(msgs); 
-				signUpForm.innerHTML = '';  
+				signUpError.innerHTML = '';  
 				if(msgs.length == 1) {
-					signUpForm.textContent = msgs[0]; 
+					signUpError.textContent = msgs[0]; 
 				} else {
 					
 					var list = document.createElement('ul'); 
