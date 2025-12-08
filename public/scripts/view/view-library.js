@@ -170,7 +170,7 @@ jQuery(document).ready(function() {
 	
 		//Update result count
 		var books = response.data.books; 
-		var equipment = response.data.equip;
+		var equipment = response.data.equipment;
 		
 		
 		var count = books.length + equipment.length; 
