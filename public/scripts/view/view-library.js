@@ -199,8 +199,8 @@ jQuery(document).ready(function() {
 		        const card = jQuery('<div class="info-card">');
 		
 		        card.append(jQuery('<h5>').html(`<b>${book.title}</b>`));
-		        card.append(jQuery('<p>').text(book.author));
-		        card.append(jQuery('<p>').text(book.description));
+		        card.append(jQuery('<p>').text(book.bookEdition));
+		        card.append(jQuery('<p>').text(book.condition));
 		
 		        col.append(card);
 		        currentRow.append(col);	
@@ -224,7 +224,7 @@ jQuery(document).ready(function() {
 		        // Create the inner card container
 		        const card = jQuery('<div class="info-card">');
 		
-		        card.append(jQuery('<h5>').html(`<b>${equipment.name}</b>`));
+		        card.append(jQuery('<h5>').html(`<b>${equipment.equipmentName}</b>`));
 		
 		        col.append(card);
 		        currentRow.append(col);	
