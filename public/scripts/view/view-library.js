@@ -143,7 +143,7 @@ jQuery(document).ready(function() {
 		}
 		
 		API.searchLibrary(searchFilters).done(function(response) {
-			populateSearchResults(response.data);
+			populateSearchResults(response);
 		}).fail(function() {
 			console.log("Failure."); 
 		});
@@ -166,10 +166,14 @@ jQuery(document).ready(function() {
 	}
 	
 	//Populates the card view with the search results
-	function populateSearchResults(results) {
+	function populateSearchResults(response) {
 	
 		//Update result count
-		var count = results.books.length + results.equipment.length; 
+		var books = response.data.books; 
+		var equipment = response.data.equip;
+		
+		
+		var count = books.length + equipment.length; 
 		resultCount.text(count);
 		resultsMetadata.show();
 		
@@ -180,8 +184,8 @@ jQuery(document).ready(function() {
 	    let currentRow;
 	    let itemCount = 0;
 	
-		if(results.books.length > 0) {
-		    results.books.forEach((book, index) => {
+		if(books.length > 0) {
+		    books.forEach((book, index) => {
 		        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.)
 		        if (itemCount % 4 === 0) {
 		            currentRow = jQuery('<div class="row">');
@@ -206,8 +210,8 @@ jQuery(document).ready(function() {
 			});
 		}
 		
-		if(results.equipment.length > 0) {
-			results.equipment.forEach((equipment, index) => {
+		if(equipment.length > 0) {
+			equipment.forEach((equipment, index) => {
 		        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.) 
 		        if (itemCount % 4 === 0) {
 		            currentRow = jQuery('<div class="row">');
