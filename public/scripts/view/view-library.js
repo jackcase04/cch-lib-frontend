@@ -121,9 +121,9 @@ jQuery(document).ready(function() {
 		if(searchCategory.dataset.selectedSearchOption == '2') {
 			console.log("Search books.")
 			
-			searchFilters.bookTitle = titleInput.value(); 
-			searchFilters.bookAuthor = titleInput.value();
-			searchFilters.isbn = titleInput.value();
+			searchFilters.bookTitle = titleInput.value; 
+			searchFilters.bookAuthor = authorInput.value;
+			searchFilters.isbn = isbnInput.value;
 			searchFilters.equipmentName = null;
 			
 		//Search Equipment
@@ -132,7 +132,7 @@ jQuery(document).ready(function() {
 			searchFilters.bookTitle = null; 
 			searchFilters.bookAuthor = null;
 			searchFilters.isbn = null;
-			searchFilters.equipmentName = equipNameInput.value();
+			searchFilters.equipmentName = equipNameInput.value;
 		//Search all
 		} else if (searchCategory.dataset.selectedSearchOption == '1') {
 			searchFilters.bookTitle = null; 
