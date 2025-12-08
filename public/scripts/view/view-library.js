@@ -111,8 +111,8 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		
 		var searchFilters = {}; 
-		searchFilter.selectedSearchOption == searchCategory.dataset.selectedSearchOption;
-		searchFilter.bookTitle; 
+		searchFilters.selectedSearchOption == searchCategory.dataset.selectedSearchOption;
+		searchFilters.bookTitle; 
 		searchFilters.bookAuthor; 
 		searchFilters.isbn; 
 		searchFilters.equipmentName; 
