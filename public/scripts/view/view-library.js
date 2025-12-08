@@ -199,8 +199,8 @@ jQuery(document).ready(function() {
 		        const card = jQuery('<div class="info-card">');
 		
 		        card.append(jQuery('<h5>').html(`<b>${book.title}</b>`));
-		        card.append(jQuery('<p>').text(book.bookEdition));
-		        card.append(jQuery('<p>').text(book.condition));
+		        card.append(jQuery('<p>').text(`Edition: ${book.bookEdition}`));
+		        card.append(jQuery('<p>').text(`Condition: ${book.condition}`));
 		
 		        col.append(card);
 		        currentRow.append(col);	
