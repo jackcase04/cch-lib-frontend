@@ -110,23 +110,43 @@ jQuery(document).ready(function() {
 	searchForm.on('submit', function(e) {
 		e.preventDefault();
 		
-		var searchFilters = {}
+		var searchFilters = {}; 
+		searchFilter.selectedSearchOption == searchCategory.dataset.selectedSearchOption;
+		searchFilter.bookTitle; 
+		searchFilters.bookAuthor; 
+		searchFilters.isbn; 
+		searchFilters.equipmentName; 
+		
 		//Search books
 		if(searchCategory.dataset.selectedSearchOption == '2') {
 			console.log("Search books.")
+			
+			searchFilters.bookTitle = titleInput.value(); 
+			searchFilters.bookAuthor = titleInput.value();
+			searchFilters.isbn = titleInput.value();
+			searchFilters.equipmentName = null;
+			
 		//Search Equipment
 		} else if (searchCategory.dataset.selectedSearchOption == '3') {
 			console.log("Search equipment."); 
+			searchFilters.bookTitle = null; 
+			searchFilters.bookAuthor = null;
+			searchFilters.isbn = null;
+			searchFilters.equipmentName = equipNameInput.value();
 		//Search all
 		} else if (searchCategory.dataset.selectedSearchOption == '1') {
-			searchFilters.selectedSearchOption = searchCategory.dataset.selectedSearchOption; 
-			API.searchLibrary(searchFilters).done(function(response) {
-				populateSearchResults(response.data);
-			}).fail(function() {
+			searchFilters.bookTitle = null; 
+			searchFilters.bookAuthor = null;
+			searchFilters.isbn = null;
+			searchFilters.equipmentName = null; 
 				
-			});
-			
 		}
+		
+		API.searchLibrary(searchFilters).done(function(response) {
+			populateSearchResults(response.data);
+		}).fail(function() {
+			console.log("Failure."); 
+		});
 		
 		
 		
@@ -160,51 +180,55 @@ jQuery(document).ready(function() {
 	    let currentRow;
 	    let itemCount = 0;
 	
-	    results.books.forEach((book, index) => {
-	        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.)
-	        if (itemCount % 4 === 0) {
-	            currentRow = jQuery('<div class="row">');
-	            cardViewResults.append(currentRow);
-	        }
-	
-	        // Create the column wrapper using Bootstrap grid classes
-	        const col = jQuery('<div class="col-xs-12 col-sm-6 col-xxl-3">');
-	        
-	        // Create the inner card container
-	        const card = jQuery('<div class="info-card">');
-	
-	        card.append(jQuery('<h5>').html(`<b>${book.title}</b>`));
-	        card.append(jQuery('<p>').text(book.author));
-	        card.append(jQuery('<p>').text(book.description));
-	
-	        col.append(card);
-	        currentRow.append(col);	
-	        
-	        itemCount++; 
+		if(results.books.length > 0) {
+		    results.books.forEach((book, index) => {
+		        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.)
+		        if (itemCount % 4 === 0) {
+		            currentRow = jQuery('<div class="row">');
+		            cardViewResults.append(currentRow);
+		        }
 		
-		});
+		        // Create the column wrapper using Bootstrap grid classes
+		        const col = jQuery('<div class="col-xs-12 col-sm-6 col-xxl-3">');
+		        
+		        // Create the inner card container
+		        const card = jQuery('<div class="info-card">');
 		
-		results.equipment.forEach((equipment, index) => {
-	        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.) 
-	        if (itemCount % 4 === 0) {
-	            currentRow = jQuery('<div class="row">');
-	            cardViewResults.append(currentRow);
-	        }
-	
-	        // Create the column wrapper using Bootstrap grid classes
-	        const col = jQuery('<div class="col-xs-12 col-sm-6 col-xxl-3">');
-	        
-	        // Create the inner card container
-	        const card = jQuery('<div class="info-card">');
-	
-	        card.append(jQuery('<h5>').html(`<b>${equipment.name}</b>`));
-	
-	        col.append(card);
-	        currentRow.append(col);	
-	        
-	        itemCount++; 
+		        card.append(jQuery('<h5>').html(`<b>${book.title}</b>`));
+		        card.append(jQuery('<p>').text(book.author));
+		        card.append(jQuery('<p>').text(book.description));
 		
-		});
+		        col.append(card);
+		        currentRow.append(col);	
+		        
+		        itemCount++; 
+			
+			});
+		}
+		
+		if(results.equipment.length > 0) {
+			results.equipment.forEach((equipment, index) => {
+		        // Start a new Bootstrap row for every 4 items (0, 4, 8, etc.) 
+		        if (itemCount % 4 === 0) {
+		            currentRow = jQuery('<div class="row">');
+		            cardViewResults.append(currentRow);
+		        }
+		
+		        // Create the column wrapper using Bootstrap grid classes
+		        const col = jQuery('<div class="col-xs-12 col-sm-6 col-xxl-3">');
+		        
+		        // Create the inner card container
+		        const card = jQuery('<div class="info-card">');
+		
+		        card.append(jQuery('<h5>').html(`<b>${equipment.name}</b>`));
+		
+		        col.append(card);
+		        currentRow.append(col);	
+		        
+		        itemCount++; 
+			
+			});
+		}
 	
 	}
 
